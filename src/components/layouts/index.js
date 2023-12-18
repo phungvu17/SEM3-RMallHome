@@ -5,7 +5,7 @@ function Layout({ children }) {
   return (
     <div id="main-wrapper">
       <Header />
-      <PageTitle />
+
       <div className="content-body">
         <div className="container-fluid">
           <div>{children}</div>
