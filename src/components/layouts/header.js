@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 function Header() {
   return (
     <header id="top-menu">
@@ -59,59 +60,24 @@ function Header() {
                 <nav>
                   <ul>
                     <li>
-                      <a className="active" href="#">
-                        Home <i className="far fa-chevron-down"></i>
-                      </a>
-                      <ul className="submenu">
-                        <li>
-                          <a href="index.html">Home Style 1</a>
-                        </li>
-                        <li>
-                          <a href="index-2.html">Home Style 2</a>
-                        </li>
-                        <li>
-                          <a href="index-3.html">Home Style 3</a>
-                        </li>
-                      </ul>
+                      <NavLink to="/">Home</NavLink>
                     </li>
                     <li>
-                      <a href="about.html">About</a>
+                      <NavLink to="/About">About</NavLink>
                     </li>
                     <li>
-                      <a href="#">
+                      <NavLink to="/Case">
                         Case <i className="far fa-chevron-down"></i>
-                      </a>
+                      </NavLink>
                       <ul className="submenu">
                         <li>
-                          <a href="case.html">Case Study One</a>
-                        </li>
-                        <li>
-                          <a href="case-2.html">Case Study Two</a>
-                        </li>
-                        <li>
-                          <a href="case-3.html">Case Study Three</a>
-                        </li>
-                        <li>
-                          <a href="case-details.html">Case Study Details</a>
+                          <NavLink to="/CaseDetails">
+                            Case Study Details
+                          </NavLink>
                         </li>
                       </ul>
                     </li>
-                    <li>
-                      <a href="#">
-                        Event <i className="far fa-chevron-down"></i>
-                      </a>
-                      <ul className="submenu">
-                        <li>
-                          <a href="events-list.html">Events List</a>
-                        </li>
-                        <li>
-                          <a href="events-grid.html">Events Grid</a>
-                        </li>
-                        <li>
-                          <a href="events-details.html">Events Details</a>
-                        </li>
-                      </ul>
-                    </li>
+
                     <li>
                       <a href="#">
                         Pages <i className="far fa-chevron-down"></i>
@@ -159,18 +125,12 @@ function Header() {
                       </ul>
                     </li>
                     <li>
-                      <a href="#">
+                      <NavLink to="/Blog">
                         Blog <i className="far fa-chevron-down"></i>
-                      </a>
+                      </NavLink>
                       <ul className="submenu">
                         <li>
-                          <a href="blog-grid.html">Blog Grid</a>
-                        </li>
-                        <li>
-                          <a href="blog-standard.html">Blog Standard</a>
-                        </li>
-                        <li>
-                          <a href="blog-details.html">Blog Details</a>
+                          <NavLink to="/BlogDetails">Blog Details</NavLink>
                         </li>
                       </ul>
                     </li>
