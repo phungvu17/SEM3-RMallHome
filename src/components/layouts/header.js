@@ -135,7 +135,7 @@ function Header() {
                       </ul>
                     </li>
                     <li>
-                      <a href="contact.html">Contact</a>
+                      <NavLink to="/Contact">Contact</NavLink>
                     </li>
                   </ul>
                 </nav>

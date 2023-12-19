@@ -7,6 +7,7 @@ import Case from "./components/pages/case";
 import CaseDetails from "./components/pages/case/case-details";
 import Blog from "./components/pages/blog";
 import BlogDetails from "./components/pages/blog/blog-details";
+import Contact from "./components/pages/contact";
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
         <Route path="/Blog" element={<Blog />} />
         <Route path="/BlogDetails" element={<BlogDetails />} />
         {/* End Blog */}
+
+        {/*Start Contact */}
+        <Route path="/Contact" element={<Contact />} />
+
+        {/* End Contact */}
       </Routes>
     </div>
   );
