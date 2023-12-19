@@ -1,11 +1,21 @@
 import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import PageTitle from "../../layouts/page-title";
+import { useEffect, useState } from "react";
+import Loading from "../../layouts/loading";
 function Contact() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
   return (
     <>
       <Helmet>RMail | Contact </Helmet>
       <Layout>
+        {loading ? <Loading /> : ""}
         <PageTitle />
         <main>
           <section className="contacts-details-area pt-130 pb-100">

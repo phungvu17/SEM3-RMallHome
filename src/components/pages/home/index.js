@@ -1,9 +1,19 @@
 import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
 import Layout from "../../layouts";
+import Loading from "../../layouts/loading";
 function Home() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
   return (
     <>
       <Helmet>R Mail| Home</Helmet>
+      {loading ? <Loading /> : ""}
       <Layout>
         <main>
           <div className="slider-area pos-rel">

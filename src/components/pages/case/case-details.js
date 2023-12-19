@@ -1,11 +1,21 @@
 import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import PageTitle from "../../layouts/page-title";
+import Loading from "../../layouts/loading";
+import { useEffect, useState } from "react";
 function CaseDetails() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
   return (
     <>
       <Helmet>RMail | case-details</Helmet>
       <Layout>
+        {loading ? <Loading /> : ""}
         <PageTitle />
         <main>
           <section className="cases-details-area pt-125">

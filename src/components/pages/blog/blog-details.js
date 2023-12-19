@@ -1,11 +1,21 @@
 import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import PageTitle from "../../layouts/page-title";
+import Loading from "../../layouts/loading";
+import { useEffect, useState } from "react";
 function BlogDetails() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
   return (
     <>
       <Helmet>RMail | BlogDetails</Helmet>
       <Layout>
+        {loading ? <Loading /> : ""}
         <PageTitle />
         <main>
           <section className="blog-details-area pt-130 pb-70">
