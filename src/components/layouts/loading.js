@@ -1,13 +1,13 @@
 function Loading() {
-  return (
-    <>
-      <div class="preloader">
-        <div class="loader">
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div className="preloader">
+                <div className="loader">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </>
+    );
 }
 export default Loading;
