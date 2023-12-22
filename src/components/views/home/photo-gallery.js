@@ -28,12 +28,22 @@ function PhotoGallery() {
                                         <div className="gallery__thumb pos-rel mb-30">
                                             <img src="assets/img/gallery/1.jpeg" alt="" />
                                         </div>
+                                        <div className="gallery__content">
+                                            <a className="popup-image" href="assets/img/gallery/1.jpeg">
+                                                <i className="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-6">
                                     <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
                                         <div className="gallery__thumb pos-rel mb-30">
                                             <img src="assets/img/gallery/2.jpeg" alt="" />
+                                        </div>
+                                        <div className="gallery__content">
+                                            <a className="popup-image" href="assets/img/gallery/2.jpeg">
+                                                <i className="fa fa-search-plus"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -42,12 +52,22 @@ function PhotoGallery() {
                                         <div className="gallery__thumb pos-rel mb-30">
                                             <img src="assets/img/gallery/3.jpeg" alt="" />
                                         </div>
+                                        <div className="gallery__content">
+                                            <a className="popup-image" href="assets/img/gallery/3.jpeg">
+                                                <i className="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-6">
                                     <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
                                         <div className="gallery__thumb pos-rel mb-30">
                                             <img src="assets/img/gallery/4.jpeg" alt="" />
+                                        </div>
+                                        <div className="gallery__content">
+                                            <a className="popup-image" href="assets/img/gallery/4.jpeg">
+                                                <i className="fa fa-search-plus"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -57,6 +77,11 @@ function PhotoGallery() {
                             <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
                                 <div className="gallery__thumb pos-rel mb-30">
                                     <img src="assets/img/about/1.jpeg" alt="" />
+                                </div>
+                                <div className="gallery__content">
+                                    <a className="popup-image" href="assets/img/about/1.jpeg">
+                                        <i className="fa fa-search-plus"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
