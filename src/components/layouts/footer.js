@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
     return (
         <footer className="footer-area black-bg pos-rel pt-80 pb-50">
@@ -6,11 +8,11 @@ function Footer() {
                     <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".1s">
                         <div className="footer__widget mb-30">
                             <div className="footer-logo">
-                                <a href="index.html">
+                                <Link to="/">
                                     <img src="assets/img/logo/logo-light.png" alt="" />
-                                </a>
+                                </Link>
                             </div>
-                            <p>We are many variations of passages of orem psum available but the majority have suffered alteration in some injected humour.</p>
+                            <p> Uncover unique finds and modern conveniences that redefine the essence of a shopping center.</p>
                             <div className="subscribe">
                                 <form action="#">
                                     <input type="email" placeholder="Enter your email" />
