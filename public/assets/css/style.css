@@ -59,7 +59,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: barlow condensed, sans-serif;
+    /* font-family: barlow condensed, sans-serif; */
     color: #001234;
     line-height: 1.1;
     margin-top: 0;
@@ -358,7 +358,6 @@ label {
     font-size: 65px;
     line-height: 1.1;
     font-weight: 600;
-    font-family: barlow condensed, sans-serif;
     letter-spacing: -0.3px;
 }
 .section-title h2 span {
@@ -387,7 +386,7 @@ label {
 }
 .semi-02-title {
     font-size: 24px;
-    font-family: barlow condensed, sans-serif;
+    /* font-family: barlow condensed, sans-serif; */
 }
 .white-title h6 {
     color: #4db7a6;
@@ -3326,7 +3325,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 .widget_address__icon i {
     color: #4db7a6;
-    font-size: 37px;
+    font-size: 25px;
 }
 .widget_address__content h4 {
     margin-bottom: 0;
@@ -7228,4 +7227,56 @@ input.main-search-input:-ms-input-placeholder {
 .btn-arrow:hover {
     background: #f15b43;
     color: #fff;
+}
+
+.semi-02-title__custom {
+    font-size: 18px;
+}
+
+/* search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.search-bar__input {
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 0 20px;
+    color: #364f75;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar__input::placeholder {
+    color: #364f75;
+}
+
+.search-bar__input:focus,
+.search-bar__input:valid {
+    width: 280px;
+    height: 45px;
+}
+
+.search-bar__btn {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    background: #4db7a6;
+    color: #fff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in;
+}
+
+.search-bar__btn:hover {
+    background: #f15b43;
 }

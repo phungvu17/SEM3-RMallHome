@@ -6,6 +6,7 @@ import CaseDetails from "./components/pages/case/case-details";
 import Blog from "./components/pages/blog";
 import BlogDetails from "./components/pages/blog/blog-details";
 import Contact from "./components/pages/contact";
+import NotFound from "./components/pages/other/not-found";
 
 function App() {
     return (
@@ -20,19 +21,22 @@ function App() {
                 {/* End About */}
 
                 {/*Start Case */}
-                <Route path="/Case" element={<Case />} />
-                <Route path="/CaseDetails" element={<CaseDetails />} />
+                <Route path="/case" element={<Case />} />
+                <Route path="/case-detail" element={<CaseDetails />} />
                 {/* End Case */}
 
                 {/*Start Blog */}
-                <Route path="/Blog" element={<Blog />} />
-                <Route path="/BlogDetails" element={<BlogDetails />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog-details" element={<BlogDetails />} />
                 {/* End Blog */}
 
                 {/*Start Contact */}
-                <Route path="/Contact" element={<Contact />} />
-
+                <Route path="/contact" element={<Contact />} />
                 {/* End Contact */}
+
+                {/* Start other */}
+                <Route path="*" element={<NotFound />} />
+                {/* End other */}
             </Routes>
         </div>
     );
