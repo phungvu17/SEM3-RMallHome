@@ -33,7 +33,7 @@ function About() {
                                 a unique and convenient shopping space in the suburban area of ​​Mumbai.
                             </p>
                             <ul className="about_list mt-30 mb-20 wow fadeInUp2 animated" data-wow-delay=".2s">
-                                <li>Explore Shopping Diversity: ABCD Malls brings you a unique shopping experience with many stores, top brands, and an ideal shopping space.</li>
+                                <li>Explore Shopping Diversity: R Mall brings you a unique shopping experience with many stores, top brands, and an ideal shopping space.</li>
                                 <li>Diverse Amenities: With R Mall, you not only have the opportunity to shop, but also enjoy special amenities such as stylish restaurants, diverse entertainment.</li>
                             </ul>
                             <a className="theme_btn theme_btn_bg" href="#!">

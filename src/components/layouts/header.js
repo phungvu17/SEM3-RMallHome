@@ -17,12 +17,7 @@ function Header() {
                     <div className="row align-items-center">
                         <div className="col-xl-6 offset-xl-2 col-lg-7">
                             <div className="top-cta">
-                                <span>
-                                    Welcome To Carelax. Best Charity Foundation All Around The World.
-                                    <a className="media-link" href="#">
-                                        Sign up
-                                    </a>
-                                </span>
+                                <span>Welcome to R Mall, where shopping becomes a special experience!</span>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-5 text-end">
@@ -60,7 +55,7 @@ function Header() {
                         <div className="col-xl-2 col-lg-2 col-md-6 col-6">
                             <div className="logo">
                                 <Link to="/" className="logo-img">
-                                    <img src="assets/img/logo/logo.png" alt />
+                                    <img src="assets/img/logo/logo.png" alt="" />
                                 </Link>
                             </div>
                         </div>

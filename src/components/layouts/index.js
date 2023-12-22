@@ -375,7 +375,7 @@ function Layout({ children }) {
                             <a href="about.html">About Us</a>
                         </li>
                         <li className="has-dropdown">
-                            <a href="#">Case</a>
+                            <a href="#!">Case</a>
                             <ul className="sub-menu">
                                 <li>
                                     <a href="case.html">Case Study One</a>
@@ -392,7 +392,7 @@ function Layout({ children }) {
                             </ul>
                         </li>
                         <li className="has-dropdown">
-                            <a href="#">Event</a>
+                            <a href="#!">Event</a>
                             <ul className="sub-menu">
                                 <li>
                                     <a href="events-list.html">Events List</a>
@@ -406,7 +406,7 @@ function Layout({ children }) {
                             </ul>
                         </li>
                         <li className="has-dropdown">
-                            <a href="#">Pages</a>
+                            <a href="#!">Pages</a>
                             <ul className="sub-menu">
                                 <li>
                                     <a href="gallery.html">Gallery</a>
@@ -450,7 +450,7 @@ function Layout({ children }) {
                             </ul>
                         </li>
                         <li className="has-dropdown">
-                            <a href="#">Blog</a>
+                            <a href="#!">Blog</a>
                             <ul className="submenu">
                                 <li>
                                     <a href="blog-grid.html">Blog Grid</a>

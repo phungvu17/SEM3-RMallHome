@@ -12,7 +12,9 @@ function BlogDetails() {
     }, []);
     return (
         <>
-            <Helmet>RMail | BlogDetails</Helmet>
+            <Helmet>
+                <title>Blog Detail | R Mall</title>
+            </Helmet>
             <Layout>
                 {loading ? <Loading /> : ""}
                 <main>
@@ -36,7 +38,7 @@ function BlogDetails() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" className="active">
+                                                    <a href="#!" className="active">
                                                         Blog Details
                                                     </a>
                                                 </li>
@@ -55,7 +57,7 @@ function BlogDetails() {
                                     <div className="blogs-details-left-area mb-50">
                                         <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
                                             <div className="blog__thumb mb-35">
-                                                <img src="assets/img/blog/single.jpg" alt />
+                                                <img src="assets/img/blog/single.jpg" alt="" />
                                             </div>
                                             <div className="blog__content">
                                                 <a className="tag" href="blog-details.html">
@@ -66,8 +68,8 @@ function BlogDetails() {
                                                 </h3>
                                                 <ul className="blog-author mb-20">
                                                     <li>
-                                                        <a href="#">
-                                                            <img src="assets/img/blog/author.jpg" alt />
+                                                        <a href="#!">
+                                                            <img src="assets/img/blog/author.jpg" alt="" />
                                                             <span>Gabriela Franklin</span>
                                                         </a>
                                                     </li>
@@ -91,7 +93,7 @@ function BlogDetails() {
                                                     auctor tellus in massa convallis aliquam. Donec vel tempus enim.
                                                 </p>
                                                 <div className="blogs-details-thumb mb-10">
-                                                    <img className="img-fluid" src="assets/img/blog/5.jpg" alt />
+                                                    <img className="img-fluid" src="assets/img/blog/5.jpg" alt="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -124,24 +126,24 @@ function BlogDetails() {
                                             <div className="col-xl-6 col-lg-6 col-md-6">
                                                 <div className="blog-post-tag mb-50">
                                                     <span>Tags : </span>
-                                                    <a href="#">Charity,</a>
-                                                    <a href="#">Donation,</a>
-                                                    <a href="#">Child</a>
+                                                    <a href="#!">Charity,</a>
+                                                    <a href="#!">Donation,</a>
+                                                    <a href="#!">Child</a>
                                                 </div>
                                             </div>
                                             <div className="col-xl-6 col-lg-6 col-md-6 text-left text-md-end">
                                                 <div className="header-social post-share-icon mb-50">
                                                     <span>Share :</span>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-facebook-f"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-twitter"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-youtube"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-linkedin-in"></i>
                                                     </a>
                                                 </div>
@@ -149,7 +151,7 @@ function BlogDetails() {
                                         </div>
                                         <div className="author fix mb-60">
                                             <div className="author__img f-left">
-                                                <img src="assets/img/blog/author-2.jpg" alt />
+                                                <img src="assets/img/blog/author-2.jpg" alt="" />
                                             </div>
                                             <div className="author__content fix">
                                                 <h4 className="semi-02-title">Jim B Ramirez</h4>
@@ -158,16 +160,16 @@ function BlogDetails() {
                                                     Nam ut nunc eget mi dapibus elementum.
                                                 </p>
                                                 <div className="header-social post-share-icon pt-10">
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-facebook-f"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-twitter"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-youtube"></i>
                                                     </a>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         <i className="fab fa-linkedin-in"></i>
                                                     </a>
                                                 </div>
@@ -177,7 +179,7 @@ function BlogDetails() {
                                             <div className="col-xl-6 col-lg-12 col-md-6">
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/blog/s-1.jpg" alt />
+                                                        <img src="assets/img/blog/s-1.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h4>
@@ -197,7 +199,7 @@ function BlogDetails() {
                                             <div className="col-xl-6 col-lg-12 col-md-6">
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/blog/s-2.jpg" alt />
+                                                        <img src="assets/img/blog/s-2.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h4>
@@ -221,7 +223,7 @@ function BlogDetails() {
                                                 <li>
                                                     <div className="comment-box fix mb-40">
                                                         <div className="comment-box__img mr-25 f-left">
-                                                            <img src="assets/img/blog/com.jpg" alt />
+                                                            <img src="assets/img/blog/com.jpg" alt="" />
                                                         </div>
                                                         <div className="comment-box__content fix">
                                                             <h5>Lawrence Moore</h5>
@@ -232,7 +234,7 @@ function BlogDetails() {
                                                                 Proin eget fermentum tortor. Quisque sollicitudin pellentesque elementum ulla metus dolo mattis non eros pellentesque. In vitae mauris
                                                                 eu odio imperdiet aliquet egestas a risus.
                                                             </p>
-                                                            <a href="#" className="reply-btn">
+                                                            <a href="#!" className="reply-btn">
                                                                 Reply <i className="far fa-long-arrow-right"></i>
                                                             </a>
                                                         </div>
@@ -241,7 +243,7 @@ function BlogDetails() {
                                                 <li className="children ml-150">
                                                     <div className="comment-box fix mb-40">
                                                         <div className="comment-box__img mr-25 f-left">
-                                                            <img src="assets/img/blog/com.jpg" alt />
+                                                            <img src="assets/img/blog/com.jpg" alt="" />
                                                         </div>
                                                         <div className="comment-box__content fix">
                                                             <h5>Darwin Fisher</h5>
@@ -252,7 +254,7 @@ function BlogDetails() {
                                                                 Proin eget fermentum tortor. Quisque sollicitudin pellentesque elementum ulla metus dolo mattis non eros pellentesque. In vitae mauris
                                                                 eu odio imperdiet aliquet egestas a risus.
                                                             </p>
-                                                            <a href="#" className="reply-btn">
+                                                            <a href="#!" className="reply-btn">
                                                                 Reply <i className="far fa-long-arrow-right"></i>
                                                             </a>
                                                         </div>
@@ -261,7 +263,7 @@ function BlogDetails() {
                                                 <li>
                                                     <div className="comment-box fix mb-50">
                                                         <div className="comment-box__img mr-25 f-left">
-                                                            <img src="assets/img/blog/com.jpg" alt />
+                                                            <img src="assets/img/blog/com.jpg" alt="" />
                                                         </div>
                                                         <div className="comment-box__content fix">
                                                             <h5>Kendrick Blair</h5>
@@ -272,7 +274,7 @@ function BlogDetails() {
                                                                 Proin eget fermentum tortor. Quisque sollicitudin pellentesque elementum ulla metus dolo mattis non eros pellentesque. In vitae mauris
                                                                 eu odio imperdiet aliquet egestas a risus.
                                                             </p>
-                                                            <a href="#" className="reply-btn">
+                                                            <a href="#!" className="reply-btn">
                                                                 Reply <i className="far fa-long-arrow-right"></i>
                                                             </a>
                                                         </div>
@@ -327,31 +329,31 @@ function BlogDetails() {
                                             <ul className="widget-cat">
                                                 <h3 className="cases-title mb-30">Category</h3>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         {" "}
                                                         <i className="far fa-angle-double-right"></i> Donate For Food <span>(10)</span>{" "}
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         {" "}
                                                         <i className="far fa-angle-double-right"></i> Education <span>(15)</span>{" "}
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         {" "}
                                                         <i className="far fa-angle-double-right"></i> Health & Medical <span>(20)</span>{" "}
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         {" "}
                                                         <i className="far fa-angle-double-right"></i> Donate For Child <span>(30)</span>{" "}
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="#!">
                                                         {" "}
                                                         <i className="far fa-angle-double-right"></i> Blood Donate <span>(45)</span>{" "}
                                                     </a>
@@ -365,7 +367,7 @@ function BlogDetails() {
                                                     <li>
                                                         <div className="post d-flex align-items-center mb-20">
                                                             <div className="post__thumb mr-20">
-                                                                <img src="assets/img/blog/s-1.jpg" alt />
+                                                                <img src="assets/img/blog/s-1.jpg" alt="" />
                                                             </div>
                                                             <div className="post__content">
                                                                 <h4>
@@ -380,7 +382,7 @@ function BlogDetails() {
                                                     <li>
                                                         <div className="post d-flex align-items-center mb-20">
                                                             <div className="post__thumb mr-20">
-                                                                <img src="assets/img/blog/s-2.jpg" alt />
+                                                                <img src="assets/img/blog/s-2.jpg" alt="" />
                                                             </div>
                                                             <div className="post__content">
                                                                 <h4>
@@ -395,7 +397,7 @@ function BlogDetails() {
                                                     <li>
                                                         <div className="post d-flex align-items-center mb-20">
                                                             <div className="post__thumb mr-20">
-                                                                <img src="assets/img/blog/s-3.jpg" alt />
+                                                                <img src="assets/img/blog/s-3.jpg" alt="" />
                                                             </div>
                                                             <div className="post__content">
                                                                 <h4>
@@ -414,25 +416,25 @@ function BlogDetails() {
                                             <div className="widget-cat-btn">
                                                 <h3 className="cases-title mb-30">Popular Tags</h3>
                                                 <div className="cat-list">
-                                                    <a className="cat-btn" href="#">
+                                                    <a className="cat-btn" href="#!">
                                                         Charity
                                                     </a>
-                                                    <a className="cat-btn" href="#">
+                                                    <a className="cat-btn" href="#!">
                                                         Children
                                                     </a>
-                                                    <a className="cat-btn" href="#">
+                                                    <a className="cat-btn" href="#!">
                                                         Donate
                                                     </a>
-                                                    <a className="cat-btn" href="#">
+                                                    <a className="cat-btn" href="#!">
                                                         Online
                                                     </a>
-                                                    <a className="cat-btn" href="#">
+                                                    <a className="cat-btn" href="#!">
                                                         Latest
                                                     </a>
-                                                    <a className="cat-btn" href="#">
+                                                    <a className="cat-btn" href="#!">
                                                         People
                                                     </a>
-                                                    <a className="cat-btn" href="#">
+                                                    <a className="cat-btn" href="#!">
                                                         Poor
                                                     </a>
                                                 </div>

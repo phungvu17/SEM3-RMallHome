@@ -12,7 +12,9 @@ function CaseDetails() {
     }, []);
     return (
         <>
-            <Helmet>R Mail | case-details</Helmet>
+            <Helmet>
+                <title>Case Detail | R Mall</title>
+            </Helmet>
             <Layout>
                 {loading ? <Loading /> : ""}
                 <main>
@@ -36,7 +38,7 @@ function CaseDetails() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" className="active">
+                                                    <a href="#!" className="active">
                                                         Case Details
                                                     </a>
                                                 </li>
@@ -56,13 +58,13 @@ function CaseDetails() {
                                         <div className="cases cases-wrapper-box wow fadeInUp2 animated" data-wow-delay=".2s">
                                             <div className="cases__content">
                                                 <div className="cases__box mb-20">
-                                                    <img className="img-fluid" src="assets/img/cases/single.jpg" alt />
+                                                    <img className="img-fluid" src="assets/img/cases/single.jpg" alt="" />
                                                 </div>
                                                 <h2>
-                                                    <a href="#">Help The Children Proverty And Safe World Environment</a>
+                                                    <a href="#!">Help The Children Proverty And Safe World Environment</a>
                                                 </h2>
                                                 <div className="cases--author d-flex align-items-center mb-25">
-                                                    <img src="assets/img/cases/cs-1.jpg" alt />
+                                                    <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                     <h4 className="semi-02-title ml-15">Esther Simmons</h4>
                                                 </div>
                                                 <div className="cases-meta d-sm-flex justify-content-between">
@@ -86,7 +88,7 @@ function CaseDetails() {
                                                     </div>
                                                     <div className="cases-btn mb-10 d-none d-xl-inline-block">
                                                         <a href="contact.html" className="theme_btn theme_btn2 theme_btn_bg_02">
-                                                            donate Now{" "}
+                                                            donate Now
                                                             <span>
                                                                 <i className="fas fa-heart"></i>
                                                             </span>
@@ -121,7 +123,7 @@ function CaseDetails() {
                                                             <h5>At vero eos et accusamus et</h5>
                                                             <p>
                                                                 Every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations
-                                                                of business.{" "}
+                                                                of business.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -239,7 +241,7 @@ function CaseDetails() {
                                                     </div>
                                                     <div className="col-xl-12">
                                                         <div className="input-btn mb-30">
-                                                            <button className="theme_btn theme_btn2 theme_btn_bg_02 large_btn" href="#">
+                                                            <button className="theme_btn theme_btn2 theme_btn_bg_02 large_btn" href="#!">
                                                                 donate now
                                                             </button>
                                                         </div>
@@ -256,7 +258,7 @@ function CaseDetails() {
                                                 <h3 className="cases-title mb-30">Popular Cases</h3>
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/cases/s-1.jpg" alt />
+                                                        <img src="assets/img/cases/s-1.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h5>
@@ -269,7 +271,7 @@ function CaseDetails() {
                                                 </div>
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/cases/s-2.jpg" alt />
+                                                        <img src="assets/img/cases/s-2.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h5>
@@ -282,7 +284,7 @@ function CaseDetails() {
                                                 </div>
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/cases/s-3.jpg" alt />
+                                                        <img src="assets/img/cases/s-3.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h5>
@@ -308,12 +310,12 @@ function CaseDetails() {
                                                             <ul className="cases__tag white-bg">
                                                                 <li>
                                                                     <div className="cases--author d-flex align-items-center">
-                                                                        <img src="assets/img/cases/cs-1.jpg" alt />
+                                                                        <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                                         <h4 className="semi-02-title ml-15">Esther Simmons</h4>
                                                                     </div>
                                                                 </li>
                                                                 <li>
-                                                                    <a className="theme_btn theme_btn2 theme_btn_bg_02 d-btn" href="#">
+                                                                    <a className="theme_btn theme_btn2 theme_btn_bg_02 d-btn" href="#!">
                                                                         Donate
                                                                     </a>
                                                                 </li>
@@ -339,7 +341,7 @@ function CaseDetails() {
                                                                 </div>
                                                             </div>
                                                             <h3>
-                                                                <a href="#">Help The Children Proverty And Safe World Environment</a>
+                                                                <a href="#!">Help The Children Proverty And Safe World Environment</a>
                                                             </h3>
                                                             <p>There are many variations of passages the available but the majority suffered.</p>
                                                         </div>
@@ -352,7 +354,7 @@ function CaseDetails() {
                                                 <h3 className="cases-title mb-30">Recent Donation</h3>
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/cases/s-1.jpg" alt />
+                                                        <img src="assets/img/cases/s-1.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h5>Hedy J Craig</h5>
@@ -364,7 +366,7 @@ function CaseDetails() {
                                                 </div>
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/cases/s-2.jpg" alt />
+                                                        <img src="assets/img/cases/s-2.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h5>Marianne Crumpton</h5>
@@ -376,7 +378,7 @@ function CaseDetails() {
                                                 </div>
                                                 <div className="post d-flex align-items-center mb-20">
                                                     <div className="post__thumb mr-20">
-                                                        <img src="assets/img/cases/s-3.jpg" alt />
+                                                        <img src="assets/img/cases/s-3.jpg" alt="" />
                                                     </div>
                                                     <div className="post__content">
                                                         <h5>Rebecca King</h5>
