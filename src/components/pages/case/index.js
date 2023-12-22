@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import Loading from "../../layouts/loading";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 function Case() {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -12,7 +13,9 @@ function Case() {
     }, []);
     return (
         <>
-            <Helmet>R Mail | Case</Helmet>
+            <Helmet>
+                <title>Case | R Mall</title>
+            </Helmet>
             <Layout>
                 {loading ? <Loading /> : ""}
                 <main>
@@ -31,12 +34,12 @@ function Case() {
                                             <h2 className="page-title">Case</h2>
                                             <ul className="breadcrumb-list">
                                                 <li>
-                                                    <a href="index.html">
+                                                    <Link to="/">
                                                         Home <i className="far fa-chevron-right"></i>
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="#" className="active">
+                                                    <a href="#!" className="active">
                                                         Case
                                                     </a>
                                                 </li>
@@ -88,12 +91,12 @@ function Case() {
                                     <div className="cases grey-bg2 mb-30 wow fadeInUp2 animated" data-wow-delay=".3s">
                                         <div className="cases__box pos-rel">
                                             <div className="cases__box--img">
-                                                <img src="assets/img/cases/1.jpg" alt />
+                                                <img src="assets/img/cases/1.jpg" alt="" />
                                             </div>
                                             <ul className="cases__tag white-bg">
                                                 <li>
                                                     <div className="cases--author d-flex align-items-center">
-                                                        <img src="assets/img/cases/cs-1.jpg" alt />
+                                                        <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                         <h4 className="semi-02-title ml-15">Vincent</h4>
                                                     </div>
                                                 </li>
@@ -134,12 +137,12 @@ function Case() {
                                     <div className="cases grey-bg2 mb-30 wow fadeInUp2 animated" data-wow-delay=".5s">
                                         <div className="cases__box pos-rel">
                                             <div className="cases__box--img">
-                                                <img src="assets/img/cases/2.jpg" alt />
+                                                <img src="assets/img/cases/2.jpg" alt="" />
                                             </div>
                                             <ul className="cases__tag white-bg">
                                                 <li>
                                                     <div className="cases--author d-flex align-items-center">
-                                                        <img src="assets/img/cases/cs-1.jpg" alt />
+                                                        <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                         <h4 className="semi-02-title ml-15">Vincent</h4>
                                                     </div>
                                                 </li>
@@ -180,12 +183,12 @@ function Case() {
                                     <div className="cases grey-bg2 mb-30 wow fadeInUp2 animated" data-wow-delay=".7s">
                                         <div className="cases__box pos-rel">
                                             <div className="cases__box--img">
-                                                <img src="assets/img/cases/3.jpg" alt />
+                                                <img src="assets/img/cases/3.jpg" alt="" />
                                             </div>
                                             <ul className="cases__tag white-bg">
                                                 <li>
                                                     <div className="cases--author d-flex align-items-center">
-                                                        <img src="assets/img/cases/cs-1.jpg" alt />
+                                                        <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                         <h4 className="semi-02-title ml-15">Vincent</h4>
                                                     </div>
                                                 </li>
@@ -226,12 +229,12 @@ function Case() {
                                     <div className="cases grey-bg2 mb-30 wow fadeInUp2 animated" data-wow-delay=".3s">
                                         <div className="cases__box pos-rel">
                                             <div className="cases__box--img">
-                                                <img src="assets/img/cases/1.jpg" alt />
+                                                <img src="assets/img/cases/1.jpg" alt="" />
                                             </div>
                                             <ul className="cases__tag white-bg">
                                                 <li>
                                                     <div className="cases--author d-flex align-items-center">
-                                                        <img src="assets/img/cases/cs-1.jpg" alt />
+                                                        <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                         <h4 className="semi-02-title ml-15">Vincent</h4>
                                                     </div>
                                                 </li>
@@ -272,12 +275,12 @@ function Case() {
                                     <div className="cases grey-bg2 mb-30 wow fadeInUp2 animated" data-wow-delay=".5s">
                                         <div className="cases__box pos-rel">
                                             <div className="cases__box--img">
-                                                <img src="assets/img/cases/2.jpg" alt />
+                                                <img src="assets/img/cases/2.jpg" alt="" />
                                             </div>
                                             <ul className="cases__tag white-bg">
                                                 <li>
                                                     <div className="cases--author d-flex align-items-center">
-                                                        <img src="assets/img/cases/cs-1.jpg" alt />
+                                                        <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                         <h4 className="semi-02-title ml-15">Vincent</h4>
                                                     </div>
                                                 </li>
@@ -318,12 +321,12 @@ function Case() {
                                     <div className="cases grey-bg2 mb-30 wow fadeInUp2 animated" data-wow-delay=".7s">
                                         <div className="cases__box pos-rel">
                                             <div className="cases__box--img">
-                                                <img src="assets/img/cases/3.jpg" alt />
+                                                <img src="assets/img/cases/3.jpg" alt="" />
                                             </div>
                                             <ul className="cases__tag white-bg">
                                                 <li>
                                                     <div className="cases--author d-flex align-items-center">
-                                                        <img src="assets/img/cases/cs-1.jpg" alt />
+                                                        <img src="assets/img/cases/cs-1.jpg" alt="" />
                                                         <h4 className="semi-02-title ml-15">Vincent</h4>
                                                     </div>
                                                 </li>

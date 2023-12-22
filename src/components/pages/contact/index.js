@@ -12,7 +12,9 @@ function Contact() {
     }, []);
     return (
         <>
-            <Helmet>RMail | Contact </Helmet>
+            <Helmet>
+                <title>Contact | R Mall</title>
+            </Helmet>
             <Layout>
                 {loading ? <Loading /> : ""}
                 <main>
@@ -36,7 +38,7 @@ function Contact() {
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" className="active">
+                                                    <a href="#!" className="active">
                                                         Contact
                                                     </a>
                                                 </li>
@@ -57,74 +59,74 @@ function Contact() {
                                             <h6>
                                                 <span>
                                                     <i className="far fa-heart"></i>
-                                                </span>{" "}
+                                                </span>
                                                 Get In Touch
                                             </h6>
-                                            <h2>Call Or Email Us</h2>
+                                            <h2 className="mt-20">Call Or Email Us</h2>
                                             <p>There are many variations of passages of orem psum available but the majority have suffered alteration in some.</p>
                                         </div>
                                         <div className="contacts d-flex align-items-center mb-30">
-                                            <div className="contacts__icon mr-25">
+                                            <div className="contacts__icon mr-20">
                                                 <i className="fal fa-phone-plus"></i>
                                             </div>
                                             <div className="contacts__text">
-                                                <h4 className="semi-02-title">Phone Number</h4>
+                                                <h4 className="semi-02-title semi-02-title__custom">Phone Number</h4>
                                                 <h5>+02 123 456 7894</h5>
                                             </div>
                                         </div>
                                         <div className="contacts d-flex align-items-center mb-30">
-                                            <div className="contacts__icon mr-25">
+                                            <div className="contacts__icon mr-20">
                                                 <i className="fal fa-envelope-open-text"></i>
                                             </div>
                                             <div className="contacts__text">
-                                                <h4 className="semi-02-title">Email Address</h4>
+                                                <h4 className="semi-02-title semi-02-title__custom">Email Address</h4>
                                                 <h5>
-                                                    <a href="https://themes.themewild.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="1871767e77587d60797568747d367b7775">
-                                                        [email&#160;protected]
+                                                    <a href="#!" className="__cf_email__" data-cfemail="1871767e77587d60797568747d367b7775">
+                                                        ramall@contact.com
                                                     </a>
                                                 </h5>
                                             </div>
                                         </div>
                                         <div className="contacts d-flex align-items-center mb-30">
-                                            <div className="contacts__icon mr-25">
+                                            <div className="contacts__icon mr-20">
                                                 <i className="fal fa-map-marked-alt"></i>
                                             </div>
                                             <div className="contacts__text">
-                                                <h4 className="semi-02-title">Our Location</h4>
-                                                <h5>59 Dark Road, USA</h5>
+                                                <h4 className="semi-02-title semi-02-title__custom">Our Location</h4>
+                                                <h5>Mumbai, India</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-xl-7 col-lg-6 col-md-6">
                                     <div className="donar-information donation-form mb-30 pr-50 pl-50">
-                                        <div className="section-title text-left mb-50 wow fadeInUp2 animated" data-wow-delay=".1s">
+                                        <div className="section-title text-left mb-20 wow fadeInUp2 animated" data-wow-delay=".1s">
                                             <h6>
                                                 <span>
                                                     <i className="far fa-heart"></i>
-                                                </span>{" "}
+                                                </span>
                                                 Send Message
                                             </h6>
-                                            <h2>Feel Free To Send Message.</h2>
+                                            <h2 className="mt-10">Feel Free To Send Message.</h2>
                                         </div>
                                         <div className="main-contact-area">
-                                            <form method="post" action="https://themes.themewild.com/carelax/assets/php/contact.php" id="contact-form">
+                                            <form id="contact-form">
                                                 <div className="row">
                                                     <div className="col-md-6">
-                                                        <div className="input-area mb-10">
-                                                            <input type="text" name="name" className="form-control" placeholder="Your Name" required />
+                                                        <div className="input-area mb-20">
+                                                            <input type="text" name="name" className="form-control" placeholder="Your Name" required autoFocus />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6">
-                                                        <div className="input-area mb-10">
+                                                        <div className="input-area mb-20">
                                                             <input type="text" className="form-control" name="email" placeholder="Email Address" required />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="input-area mb-10">
+                                                <div className="input-area mb-20">
                                                     <input type="text" className="form-control" name="subject" placeholder="Subject" required />
                                                 </div>
-                                                <div className="input-area mb-10">
+                                                <div className="input-area mb-20">
                                                     <textarea name="message" cols="30" rows="10" placeholder="Message" required></textarea>
                                                 </div>
                                                 <div className="input-btn">
@@ -142,7 +144,13 @@ function Contact() {
                     </section>
 
                     <div className="map-area-03">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.03927096447748!3d40.759040329405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a01c8df6fb3cb8!2sSolomon%20R.%20Guggenheim%20Museum!5e0!3m2!1sen!2sbd!4v1619410634508!5m2!1sen!2sbd"></iframe>
+                        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.03927096447748!3d40.759040329405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a01c8df6fb3cb8!2sSolomon%20R.%20Guggenheim%20Museum!5e0!3m2!1sen!2sbd!4v1619410634508!5m2!1sen!2sbd"></iframe> */}
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.14571239593!2d72.71637487134092!3d19.08217751404432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2zTXVtYmFpLCBNYWhhcmFzaHRyYSwg4bqkbiDEkOG7mQ!5e0!3m2!1svi!2s!4v1703259979890!5m2!1svi!2s"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
                 </main>
             </Layout>

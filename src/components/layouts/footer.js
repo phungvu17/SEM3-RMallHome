@@ -7,7 +7,7 @@ function Footer() {
                         <div className="footer__widget mb-30">
                             <div className="footer-logo">
                                 <a href="index.html">
-                                    <img src="assets/img/logo/logo-light.png" alt />
+                                    <img src="assets/img/logo/logo-light.png" alt="" />
                                 </a>
                             </div>
                             <p>We are many variations of passages of orem psum available but the majority have suffered alteration in some injected humour.</p>
@@ -114,7 +114,7 @@ function Footer() {
                                             <h4 className="semi-02-title semi-02-title__custom">
                                                 <a href="#!">Location</a>
                                             </h4>
-                                            <span>59 Dark Road, USA</span>
+                                            <span>Mumbai, India</span>
                                         </div>
                                     </div>
                                 </li>
@@ -129,7 +129,7 @@ function Footer() {
                                             </h4>
                                             <span>
                                                 <a href="https://themes.themewild.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="d2bbbcb4bd92b7aab3bfa2beb7fcb1bdbf">
-                                                    [email&#160;protected]
+                                                    rmall@contact.com
                                                 </a>
                                             </span>
                                         </div>
@@ -158,7 +158,7 @@ function Footer() {
                         <div className="col-md-8">
                             <div className="copyright">
                                 <p>
-                                    &copy; Copyright <span id="date"></span> <a href="#!">Carelax</a> All Rights Reserved.
+                                    &copy; Copyright <span id="date"></span> <a href="#!">R Mall</a> All Rights Reserved.
                                 </p>
                             </div>
                         </div>

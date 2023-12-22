@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import Loading from "../../layouts/loading";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Blog() {
     const [loading, setLoading] = useState(false);
@@ -13,7 +14,9 @@ function Blog() {
     }, []);
     return (
         <>
-            <Helmet>RMail | Blog</Helmet>
+            <Helmet>
+                <title>Blog | R Mall</title>
+            </Helmet>
             {loading ? <Loading /> : ""}
             <Layout>
                 <main>
@@ -32,12 +35,12 @@ function Blog() {
                                             <h2 className="page-title">Blog</h2>
                                             <ul className="breadcrumb-list">
                                                 <li>
-                                                    <a href="index.html">
+                                                    <Link to="/">
                                                         Home <i className="far fa-chevron-right"></i>
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="#" className="active">
+                                                    <a href="#!" className="active">
                                                         Blog
                                                     </a>
                                                 </li>
@@ -74,7 +77,7 @@ function Blog() {
                                 <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".2s">
                                     <div className="blog mb-30">
                                         <div className="blog__thumb">
-                                            <img src="assets/img/blog/1.jpg" alt />
+                                            <img src="assets/img/blog/1.jpg" alt="" />
                                         </div>
                                         <div className="blog__content">
                                             <a className="tag" href="blog-details.html">
@@ -86,8 +89,8 @@ function Blog() {
                                             <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
                                             <ul className="blog-author">
                                                 <li>
-                                                    <a className="mr-30" href="#">
-                                                        <img src="assets/img/blog/author.jpg" alt />
+                                                    <a className="mr-30" href="#!">
+                                                        <img src="assets/img/blog/author.jpg" alt="" />
                                                         <span>Juan Geisl</span>
                                                     </a>
                                                 </li>
@@ -101,7 +104,7 @@ function Blog() {
                                 <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".4s">
                                     <div className="blog mb-30">
                                         <div className="blog__thumb">
-                                            <img src="assets/img/blog/2.jpg" alt />
+                                            <img src="assets/img/blog/2.jpg" alt="" />
                                         </div>
                                         <div className="blog__content">
                                             <a className="tag" href="blog-details.html">
@@ -113,8 +116,8 @@ function Blog() {
                                             <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
                                             <ul className="blog-author">
                                                 <li>
-                                                    <a className="mr-30" href="#">
-                                                        <img src="assets/img/blog/author.jpg" alt />
+                                                    <a className="mr-30" href="#!">
+                                                        <img src="assets/img/blog/author.jpg" alt="" />
                                                         <span>Tom Terrell</span>
                                                     </a>
                                                 </li>
@@ -128,7 +131,7 @@ function Blog() {
                                 <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".6s">
                                     <div className="blog mb-30">
                                         <div className="blog__thumb">
-                                            <img src="assets/img/blog/3.jpg" alt />
+                                            <img src="assets/img/blog/3.jpg" alt="" />
                                         </div>
                                         <div className="blog__content">
                                             <a className="tag" href="blog-details.html">
@@ -140,8 +143,8 @@ function Blog() {
                                             <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
                                             <ul className="blog-author">
                                                 <li>
-                                                    <a className="mr-30" href="#">
-                                                        <img src="assets/img/blog/author.jpg" alt />
+                                                    <a className="mr-30" href="#!">
+                                                        <img src="assets/img/blog/author.jpg" alt="" />
                                                         <span>Jesse Dalla</span>
                                                     </a>
                                                 </li>
@@ -155,7 +158,7 @@ function Blog() {
                                 <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".8s">
                                     <div className="blog mb-30">
                                         <div className="blog__thumb">
-                                            <img src="assets/img/blog/1.jpg" alt />
+                                            <img src="assets/img/blog/1.jpg" alt="" />
                                         </div>
                                         <div className="blog__content">
                                             <a className="tag" href="blog-details.html">
@@ -167,8 +170,8 @@ function Blog() {
                                             <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
                                             <ul className="blog-author">
                                                 <li>
-                                                    <a className="mr-30" href="#">
-                                                        <img src="assets/img/blog/author.jpg" alt />
+                                                    <a className="mr-30" href="#!">
+                                                        <img src="assets/img/blog/author.jpg" alt="" />
                                                         <span>Juan Geisl</span>
                                                     </a>
                                                 </li>
@@ -182,7 +185,7 @@ function Blog() {
                                 <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay="1s">
                                     <div className="blog mb-30">
                                         <div className="blog__thumb">
-                                            <img src="assets/img/blog/2.jpg" alt />
+                                            <img src="assets/img/blog/2.jpg" alt="" />
                                         </div>
                                         <div className="blog__content">
                                             <a className="tag" href="blog-details.html">
@@ -194,8 +197,8 @@ function Blog() {
                                             <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
                                             <ul className="blog-author">
                                                 <li>
-                                                    <a className="mr-30" href="#">
-                                                        <img src="assets/img/blog/author.jpg" alt />
+                                                    <a className="mr-30" href="#!">
+                                                        <img src="assets/img/blog/author.jpg" alt="" />
                                                         <span>Tom Terrell</span>
                                                     </a>
                                                 </li>
@@ -209,7 +212,7 @@ function Blog() {
                                 <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay="1.2s">
                                     <div className="blog mb-30">
                                         <div className="blog__thumb">
-                                            <img src="assets/img/blog/3.jpg" alt />
+                                            <img src="assets/img/blog/3.jpg" alt="" />
                                         </div>
                                         <div className="blog__content">
                                             <a className="tag" href="blog-details.html">
@@ -221,8 +224,8 @@ function Blog() {
                                             <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
                                             <ul className="blog-author">
                                                 <li>
-                                                    <a className="mr-30" href="#">
-                                                        <img src="assets/img/blog/author.jpg" alt />
+                                                    <a className="mr-30" href="#!">
+                                                        <img src="assets/img/blog/author.jpg" alt="" />
                                                         <span>Jesse Dalla</span>
                                                     </a>
                                                 </li>
@@ -240,27 +243,27 @@ function Blog() {
                                         <nav aria-label="Page navigation">
                                             <ul className="pagination justify-content-center">
                                                 <li className="page-item">
-                                                    <a className="page-link" href="#">
+                                                    <a className="page-link" href="#!">
                                                         <i className="far fa-angle-double-left"></i>
                                                     </a>
                                                 </li>
                                                 <li className="page-item">
-                                                    <a className="page-link" href="#">
+                                                    <a className="page-link" href="#!">
                                                         1
                                                     </a>
                                                 </li>
                                                 <li className="page-item">
-                                                    <a className="page-link" href="#">
+                                                    <a className="page-link" href="#!">
                                                         2
                                                     </a>
                                                 </li>
                                                 <li className="page-item">
-                                                    <a className="page-link" href="#">
+                                                    <a className="page-link" href="#!">
                                                         3
                                                     </a>
                                                 </li>
                                                 <li className="page-item">
-                                                    <a className="page-link" href="#">
+                                                    <a className="page-link" href="#!">
                                                         <i className="far fa-angle-double-right"></i>
                                                     </a>
                                                 </li>

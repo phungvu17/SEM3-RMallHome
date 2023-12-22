@@ -4,7 +4,7 @@ import Layout from "../../layouts";
 import Loading from "../../layouts/loading";
 import News from "../../views/home/news";
 import Services from "../../views/home/services";
-import About from "../../views/home/about";
+import About from "../../views/home/about-us";
 import PhotoGallery from "../../views/home/photo-gallery";
 function Home() {
     const [loading, setLoading] = useState(false);
