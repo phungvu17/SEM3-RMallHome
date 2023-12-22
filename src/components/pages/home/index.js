@@ -15,6 +15,46 @@ function Home() {
         }, 1500);
     }, []);
 
+    useEffect(() => {
+        const $ = window.$;
+        $(document).ready(function () {
+            $(".brand-active").slick({
+                infinite: true,
+                arrows: false,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                responsive: [
+                    {
+                        breakpoint: 1250,
+                        settings: {
+                            slidesToShow: 4,
+                        },
+                    },
+                    {
+                        breakpoint: 1000,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 2,
+                        },
+                    },
+                    {
+                        breakpoint: 500,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                ],
+            });
+        }, []);
+    }, []);
+
     return (
         <>
             <Helmet>
@@ -182,6 +222,85 @@ function Home() {
                     <About />
 
                     <PhotoGallery />
+
+                    <div className="brand-area grey-bg2 pt-70">
+                        <div className="container">
+                            <div className="row brand-active pb-60">
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".1s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/1.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".3s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/2.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".5s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/3.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".7s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/4.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".9s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/5.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".3s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/6.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".7s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/4.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-2">
+                                    <div className="brand-slide text-center wow fadeInUp animated" data-wow-delay=".9s">
+                                        <div className="brand-img">
+                                            <a href="#">
+                                                <img src="assets/img/brand/5.png" alt />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </Layout>
         </>
