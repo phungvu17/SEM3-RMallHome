@@ -67,19 +67,8 @@ function Header() {
                                             <NavLink to="/">Home</NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/about">About</NavLink>
+                                            <NavLink to="/blog">Blog</NavLink>
                                         </li>
-                                        <li>
-                                            <NavLink to="/case">
-                                                Case <i className="far fa-chevron-down"></i>
-                                            </NavLink>
-                                            <ul className="submenu">
-                                                <li>
-                                                    <NavLink to="/case-detail">Case Study Details</NavLink>
-                                                </li>
-                                            </ul>
-                                        </li>
-
                                         <li>
                                             <a href="#">
                                                 Pages <i className="far fa-chevron-down"></i>
@@ -127,14 +116,7 @@ function Header() {
                                             </ul>
                                         </li>
                                         <li>
-                                            <NavLink to="/blog">
-                                                Blog <i className="far fa-chevron-down"></i>
-                                            </NavLink>
-                                            <ul className="submenu">
-                                                <li>
-                                                    <NavLink to="/blog-details">Blog Details</NavLink>
-                                                </li>
-                                            </ul>
+                                            <NavLink to="/about">About Us</NavLink>
                                         </li>
                                         <li>
                                             <NavLink to="/contact">Contact</NavLink>
