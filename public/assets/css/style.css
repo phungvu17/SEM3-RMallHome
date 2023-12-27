@@ -197,7 +197,7 @@ label {
 .theme_btn {
     overflow: hidden;
     color: #fff;
-    background: #f15b43;
+    background: #061738;
     font-size: 14px;
     font-weight: 700;
     line-height: 1;
@@ -255,11 +255,11 @@ label {
     right: auto;
 }
 .theme_btn:hover i {
-    color: #4db7a6;
+    color: #061738;
     transform: rotateY(180deg);
 }
 .theme_btn_bg::before {
-    background: #4db7a6 !important;
+    background: #f15b43 !important;
 }
 .theme_btn_bg_02::before {
     background: #f15b43 !important;
@@ -277,10 +277,10 @@ label {
     background: #f15b43;
 }
 .theme_btn2 {
-    background: #4db7a6 !important;
+    background: #061738 !important;
 }
 .theme_btn2 span i {
-    color: #4db7a6;
+    color: #061738;
 }
 .theme_btn2:hover {
     border-color: transparent;
@@ -1680,7 +1680,7 @@ label {
     height: 50px;
     right: 0;
     top: 0;
-    background: #4db7a6;
+    background: #061738;
 }
 .top-cta span {
     color: #fff;
@@ -1770,14 +1770,14 @@ label {
     }
 }
 .main-menu ul li > a {
-    color: #364f75;
+    color: #323232;
     font-size: 16px;
     line-height: 1;
-    font-family: karla, sans-serif;
+    /* font-family: karla, sans-serif; */
     padding: 30px 0 36px;
     display: inline-block;
     position: relative;
-    font-weight: 500;
+    font-weight: 600;
 }
 .main-menu ul li > a i {
     font-size: 12px;
@@ -2673,14 +2673,14 @@ input.main-search-input:-ms-input-placeholder {
     margin-bottom: 35px;
 }
 .btn-list-02 li a.theme_btn2 {
-    background: #02b663;
+    background: #061738;
     color: #fff;
 }
 .btn-list-02 li a.theme-border-btn.theme_btn_bg_02 {
     color: #fff;
 }
 .btn-list-02 li a.theme-border-btn.theme_btn_bg_02::before {
-    background: #4db7a6;
+    background: #061738;
 }
 .slider-img {
     position: relative;
@@ -6041,7 +6041,7 @@ input.main-search-input:-ms-input-placeholder {
     font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
-    background: #4db7a6;
+    background: #061738;
     border-radius: 5px;
     padding: 5px 11px;
     display: inline-block;
@@ -7038,7 +7038,7 @@ input.main-search-input:-ms-input-placeholder {
     position: absolute;
     right: 5px;
     top: 5px;
-    background: #4db7a6;
+    background: #061738;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -7294,7 +7294,7 @@ input.main-search-input:-ms-input-placeholder {
     position: absolute;
     top: 50%;
     translate: 0 -50%;
-    background: #4db7a6;
+    background: #061738;
     color: #fff;
     border: none;
     width: 45px;
