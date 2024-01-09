@@ -71,47 +71,11 @@ function Header() {
                                         </li>
                                         <li>
                                             <a href="#">
-                                                Pages <i className="far fa-chevron-down"></i>
+                                                Utilities <i className="far fa-chevron-down"></i>
                                             </a>
                                             <ul className="submenu">
                                                 <li>
-                                                    <a href="gallery.html">Gallery</a>
-                                                </li>
-                                                <li>
-                                                    <a href="gallery-2.html">Gallery Two</a>
-                                                </li>
-                                                <li>
-                                                    <a href="team.html">Team</a>
-                                                </li>
-                                                <li>
-                                                    <a href="team-details.html">Team Details</a>
-                                                </li>
-                                                <li>
-                                                    <a href="login.html">Sign In</a>
-                                                </li>
-                                                <li>
-                                                    <a href="register.html">Sign Up</a>
-                                                </li>
-                                                <li>
-                                                    <a href="forgot-password.html">Forgot Password</a>
-                                                </li>
-                                                <li>
-                                                    <a href="donation.html">Donation Form</a>
-                                                </li>
-                                                <li>
-                                                    <a href="volunteer.html">Volunteer</a>
-                                                </li>
-                                                <li>
-                                                    <a href="faq.html">FAQ</a>
-                                                </li>
-                                                <li>
-                                                    <a href="term-condition.html">Terms & Conditions</a>
-                                                </li>
-                                                <li>
-                                                    <a href="privacy-policy.html">Privacy Policy</a>
-                                                </li>
-                                                <li>
-                                                    <a href="404.html">404 Error</a>
+                                                    <NavLink to="/centre-map">Centre Map</NavLink>
                                                 </li>
                                             </ul>
                                         </li>

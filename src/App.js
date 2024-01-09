@@ -7,6 +7,7 @@ import Blog from "./components/pages/blog";
 import BlogDetails from "./components/pages/blog/blog-details";
 import Contact from "./components/pages/contact";
 import NotFound from "./components/pages/other/not-found";
+import CentreMap from "./components/pages/utilities/centremap";
 
 function App() {
     return (
@@ -19,6 +20,10 @@ function App() {
                 {/*Start About */}
                 <Route path="/about" element={<About />} />
                 {/* End About */}
+
+                {/*Start Case */}
+                <Route path="/centre-map" element={<CentreMap />} />
+                {/* End Case */}
 
                 {/*Start Case */}
                 <Route path="/case" element={<Case />} />

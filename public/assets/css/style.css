@@ -198,7 +198,7 @@ label {
     overflow: hidden;
     color: #fff;
     background: #061738;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 1;
     font-family: karla, sans-serif;
@@ -385,7 +385,7 @@ label {
     }
 }
 .semi-02-title {
-    font-size: 24px;
+    font-size: 14px;
     /* font-family: barlow condensed, sans-serif; */
 }
 .white-title h6 {
@@ -3815,7 +3815,7 @@ input.main-search-input:-ms-input-placeholder {
     top: -33px;
     left: 0;
     right: 0;
-    margin: 0 30px;
+    margin-top: 40px;
     height: 65px;
     border-radius: 70px;
     z-index: 3;
@@ -3855,7 +3855,7 @@ input.main-search-input:-ms-input-placeholder {
     padding: 0;
     display: flex;
     align-items: center;
-    width: 120px;
+    width: 100px;
     right: 10px;
     justify-content: center;
     box-shadow: 0 3px 24px rgb(0 0 0/10%);
@@ -6069,9 +6069,9 @@ input.main-search-input:-ms-input-placeholder {
 .blog__content p {
     font-size: 16px;
 }
-.blog:hover .blog__thumb img {
+/* .blog:hover .blog__thumb img {
     transform: scale(1.1);
-}
+} */
 .blog:hover .blog__content .blog-title {
     color: #f15b43;
 }
@@ -7306,4 +7306,17 @@ input.main-search-input:-ms-input-placeholder {
 
 .search-bar__btn:hover {
     background: #061738;
+}
+.img-magnifier-container {
+    position: relative;
+}
+
+.img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /* Set the size of the magnifier glass: */
+    width: 150px;
+    height: 150px;
 }
