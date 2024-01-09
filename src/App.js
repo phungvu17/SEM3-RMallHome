@@ -3,10 +3,13 @@ import Home from "./components/pages/home";
 import About from "./components/pages/about";
 import Case from "./components/pages/case";
 import CaseDetails from "./components/pages/case/case-details";
-import Blog from "./components/pages/blog";
-import BlogDetails from "./components/pages/blog/blog-details";
+
 import Contact from "./components/pages/contact";
 import NotFound from "./components/pages/other/not-found";
+import Fashion from "./components/pages/shop";
+import Cuisine from "./components/pages/shop/cuisine";
+import Entertainment from "./components/pages/shop/entertaiment";
+import Other from "./components/pages/shop/other";
 
 function App() {
     return (
@@ -15,6 +18,13 @@ function App() {
                 {/* Start Home */}
                 <Route path="/" element={<Home />} />
                 {/* End Home */}
+
+                {/* Start Shop */}
+                <Route path="/Fashion" element={<Fashion/>} />
+                <Route path="/Cuisine" element={<Cuisine/>}/>
+                <Route path="/Entertainment"element={<Entertainment/>}/>
+                <Route path="/Other" element={<Other/>}/>
+                {/* End Shop*/}
 
                 {/*Start About */}
                 <Route path="/about" element={<About />} />
@@ -25,10 +35,7 @@ function App() {
                 <Route path="/case-detail" element={<CaseDetails />} />
                 {/* End Case */}
 
-                {/*Start Blog */}
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog-details" element={<BlogDetails />} />
-                {/* End Blog */}
+             
 
                 {/*Start Contact */}
                 <Route path="/contact" element={<Contact />} />

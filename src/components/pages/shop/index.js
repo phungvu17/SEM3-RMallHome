@@ -4,7 +4,8 @@ import Loading from "../../layouts/loading";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Blog() {
+
+function Fashion (){
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -15,7 +16,7 @@ function Blog() {
     return (
         <>
             <Helmet>
-                <title>Blog | R Mall</title>
+                <title>Fashion | R Mall</title>
             </Helmet>
             {loading ? <Loading /> : ""}
             <Layout>
@@ -32,7 +33,7 @@ function Blog() {
                                 <div className="col-xl-5 mx-auto">
                                     <div className="page-title-wrapper text-center pt-125">
                                         <div className="page-title-box">
-                                            <h2 className="page-title">Blog</h2>
+                                            <h2 className="page-title">Fashion</h2>
                                             <ul className="breadcrumb-list">
                                                 <li>
                                                     <Link to="/">
@@ -41,7 +42,7 @@ function Blog() {
                                                 </li>
                                                 <li>
                                                     <a href="#!" className="active">
-                                                        Blog
+                                                    Fashion
                                                     </a>
                                                 </li>
                                             </ul>
@@ -279,4 +280,4 @@ function Blog() {
         </>
     );
 }
-export default Blog;
+export default Fashion;
