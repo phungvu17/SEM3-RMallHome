@@ -10,6 +10,7 @@ import Fashion from "./components/pages/shop";
 import Cuisine from "./components/pages/shop/cuisine";
 import Entertainment from "./components/pages/shop/entertaiment";
 import Other from "./components/pages/shop/other";
+import CentreMap from "./components/pages/utilities/centremap";
 
 function App() {
     return (
@@ -20,11 +21,15 @@ function App() {
                 {/* End Home */}
 
                 {/* Start Shop */}
-                <Route path="/Fashion" element={<Fashion/>} />
-                <Route path="/Cuisine" element={<Cuisine/>}/>
-                <Route path="/Entertainment"element={<Entertainment/>}/>
-                <Route path="/Other" element={<Other/>}/>
+                <Route path="/Fashion" element={<Fashion />} />
+                <Route path="/Cuisine" element={<Cuisine />} />
+                <Route path="/Entertainment" element={<Entertainment />} />
+                <Route path="/Other" element={<Other />} />
                 {/* End Shop*/}
+
+                {/*Start Utilities */}
+                <Route path="/centre-map" element={<CentreMap />} />
+                {/* End Utilities */}
 
                 {/*Start About */}
                 <Route path="/about" element={<About />} />
@@ -34,8 +39,6 @@ function App() {
                 <Route path="/case" element={<Case />} />
                 <Route path="/case-detail" element={<CaseDetails />} />
                 {/* End Case */}
-
-             
 
                 {/*Start Contact */}
                 <Route path="/contact" element={<Contact />} />
