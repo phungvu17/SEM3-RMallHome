@@ -4,6 +4,7 @@ import Loading from "../../layouts/loading";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MagnifierImage from "./ImageMagnifier";
+import url from "../../../services/url";
 
 function CentreMap() {
     const [loading, setLoading] = useState(false);
@@ -13,6 +14,87 @@ function CentreMap() {
             setLoading(false);
         }, 1500);
     }, []);
+
+    const [floorList, setFloorList] = useState([]);
+    const [storeData, setStoreData] = useState({});
+    const getFloorList = async () => {
+        try {
+            const response = await fetch(url.BASE_URL + url.FLOOR.LIST);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error("Error fetching floor list:", error);
+            return [];
+        }
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+
+            // Lấy danh sách tầng
+            const floors = await getFloorList();
+            setFloorList(floors);
+
+            // Lấy cửa hàng theo từng tầng
+            const storeData = {};
+            for (const floor of floors) {
+                const response = await fetch(url.BASE_URL + url.SHOP.GETBYFLOOR.replace("{}", encodeURIComponent(floor.floorNumber)));
+                const data = await response.json();
+                storeData[floor.floorNumber] = data;
+            }
+
+            setStoreData(storeData);
+            setLoading(false);
+        };
+
+        fetchData();
+    }, []);
+
+    // Render phần stores theo tầng, và tiếp tục lọc theo category
+    const renderStoreInfo = (floorNumber) => {
+        const stores = storeData[floorNumber];
+
+        if (!stores || stores.length === 0) {
+            return <p>No stores found on this floor.</p>;
+        }
+
+        // lấy danh sách stores theo category
+        const storesByCategory = stores.reduce((acc, store) => {
+            if (!acc[store.categoryName]) {
+                acc[store.categoryName] = [];
+            }
+            acc[store.categoryName].push(store);
+            return acc;
+        }, {});
+
+        return (
+            <div>
+                {Object.keys(storesByCategory).map((category) => (
+                    <div key={category}>
+                        <hr />
+                        <h4>{category}</h4>
+                        <div className="row">
+                            {storesByCategory[category].map((store) => (
+                                <div className="col-lg-4" key={store.id}>
+                                    <ul className="cases__tag white-bg">
+                                        <li>
+                                            <div className="cases--author d-flex align-items-center">
+                                                <h4 className="semi-02-title ml-15">{store.name}</h4>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span className="theme_btn theme_btn2 theme_btn_bg_02 d-btn">{store.address}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        );
+    };
 
     return (
         <>
@@ -124,88 +206,7 @@ function CentreMap() {
                                                                             <i className="far fa-calendar-alt"></i> 9 January 2024
                                                                         </li>
                                                                     </ul>
-
-                                                                    <hr></hr>
-                                                                    <h4>Fashion stores</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">H&M</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-17-21</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Chanel</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-15A1</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">La Dolce Vita</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-52,53</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Gucci-Chloé-Burberry</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-HA4</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <h4>Food and drinks</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Highlands Coffee</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-58B</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Sushi Hokkaido Sachi</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-28,29B</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
+                                                                    {renderStoreInfo("Floor 1")}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -236,64 +237,7 @@ function CentreMap() {
                                                                             <i className="far fa-calendar-alt"></i> 9 January 2024
                                                                         </li>
                                                                     </ul>
-
-                                                                    <hr></hr>
-                                                                    <h4>Jewelry, cosmetics & accessories</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Style by PNJ</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">2F-PU1A</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">ECCO</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">2F-33A</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <h4>Food and drinks</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Botejyu</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">2F-37,38A</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Wayne's Coffee</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">2F-54</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
+                                                                    {renderStoreInfo("Floor 2")}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -324,116 +268,7 @@ function CentreMap() {
                                                                             <i className="far fa-calendar-alt"></i> 9 January 2024
                                                                         </li>
                                                                     </ul>
-
-                                                                    <h4>Fashion stores</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">H&M</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-17-21</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Chanel</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-15A1</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">La Dolce Vita</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-52,53</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Gucci-Chloé-Burberry</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">GF-HA4</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <h4>Jewelry, cosmetics & accessories</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Robins Department Store</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">3F-11-18</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">New Balance</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">3F-33</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <h4>Electronic and household appliances</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Samsung</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">3F-24</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Sony</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">3F-20B</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
+                                                                    {renderStoreInfo("Floor 3")}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -464,80 +299,7 @@ function CentreMap() {
                                                                             <i className="far fa-calendar-alt"></i> 9 January 2024
                                                                         </li>
                                                                     </ul>
-
-                                                                    <hr></hr>
-                                                                    <h4>Cinemas</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">RMall Cinema</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">5F-04</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">VP The Photobooth</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">5F-Booth1</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Photo Time</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">5F-18</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <h4>Food and drinks</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Soo Ice - Cream</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">5FC-K9</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Lotteria</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">5F-05A,B,C</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
+                                                                    {renderStoreInfo("Floor 4")}
                                                                 </div>
                                                             </div>
                                                         </div>
