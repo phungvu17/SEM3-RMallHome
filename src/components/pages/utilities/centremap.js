@@ -74,176 +74,33 @@ function CentreMap() {
                             </div>
 
                             <div className="row">
-                                <div className="col-md-10 mx-auto">
+                                <div className="col-md-12 mx-auto">
                                     <div className="about-wrap-04 mb-60 pl-40">
-                                        <ul className="nav nav-tabs mb-35" id="myTab" role="tablist">
-                                            <li className="nav-item">
-                                                <a className="nav-link" data-bs-toggle="tab" href="#b1floor" role="tab" aria-selected="true">
-                                                    B1 Floor
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link" data-bs-toggle="tab" href="#b2floor" role="tab" aria-selected="true">
-                                                    B2 Floor
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link active" data-bs-toggle="tab" href="#gfloor" role="tab" aria-selected="false">
-                                                    G Floor
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link" data-bs-toggle="tab" href="#floor2" role="tab" aria-selected="false">
-                                                    2 Floor
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link" data-bs-toggle="tab" href="#floor3" role="tab" aria-selected="false">
-                                                    3 Floor
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link" data-bs-toggle="tab" href="#floor4" role="tab" aria-selected="false">
-                                                    4 Floor
-                                                </a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link" data-bs-toggle="tab" href="#floor5" role="tab" aria-selected="false">
-                                                    5 Floor
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <div className="row">
+                                            <ul className="nav nav-tabs mb-35" id="myTab" role="tablist">
+                                                <li className="nav-item">
+                                                    <a className="nav-link active" data-bs-toggle="tab" href="#gfloor" role="tab" aria-selected="false">
+                                                        G Floor
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a className="nav-link" data-bs-toggle="tab" href="#floor2" role="tab" aria-selected="false">
+                                                        2 Floor
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a className="nav-link" data-bs-toggle="tab" href="#floor3" role="tab" aria-selected="false">
+                                                        3 Floor
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a className="nav-link" data-bs-toggle="tab" href="#floor4" role="tab" aria-selected="false">
+                                                        4 Floor
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                         <div className="tab-content" id="myTabContent">
-                                            <div className="tab-pane fade" id="b1floor" role="tabpanel">
-                                                <div className="inner-content d-sm-flex align-items-center">
-                                                    <div className="inner-content mr-35">
-                                                        <div className="inner-content__text">
-                                                            <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
-                                                                <div className="blog__thumb mb-35">
-                                                                    <MagnifierImage src="assets/img/map/b1floor.jpg" zoom={3} />
-                                                                </div>
-
-                                                                <div className="blog__content">
-                                                                    <a className="tag">B1 Floor</a>
-                                                                    <h3 className="blog-title mb-20">
-                                                                        <a>Parking lots for cars, motorbikes, taxi pick-up points and equipment rooms,...</a>
-                                                                    </h3>
-                                                                    <ul className="blog-author mb-20">
-                                                                        <li>
-                                                                            <a>
-                                                                                <span>Last modified:</span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i className="far fa-calendar-alt"></i> 9 January 2024
-                                                                        </li>
-                                                                    </ul>
-
-                                                                    <hr></hr>
-                                                                    <h4>Parking and services</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Car parking</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">B1F-01</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Motorbike parking</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">B1F-03,04</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Electric parking</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">B1F-11</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <h4>Equipment room and departments</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Equipment room</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">B1F-02A</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Department</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">B1F-02B</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="tab-pane fade" id="b2floor" role="tabpanel">
-                                                <div className="inner-content d-sm-flex align-items-center">
-                                                    <div className="inner-content mr-35">
-                                                        <div className="inner-content__text">
-                                                            <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
-                                                                <div className="blog__thumb mb-35">
-                                                                    <MagnifierImage src="assets/img/map/b2floor.jpg" zoom={3} />
-                                                                </div>
-
-                                                                <div className="blog__content">
-                                                                    <a className="tag">B2 Floor</a>
-                                                                    <h3 className="blog-title mb-20">
-                                                                        <a>Management board of Rmall and some restaurants.</a>
-                                                                    </h3>
-                                                                    <ul className="blog-author mb-20">
-                                                                        <li>
-                                                                            <a>
-                                                                                <span>Last modified:</span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i className="far fa-calendar-alt"></i> 9 January 2024
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div className="tab-pane fade show active" id="gfloor" role="tabpanel">
                                                 <div className="inner-content d-sm-flex align-items-center">
                                                     <div className="inner-content mr-35">
@@ -590,99 +447,11 @@ function CentreMap() {
                                                         <div className="inner-content__text">
                                                             <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
                                                                 <div className="blog__thumb mb-35">
-                                                                    <MagnifierImage src="assets/img/map/4floor.jpg" zoom={3} />
-                                                                </div>
-
-                                                                <div className="blog__content">
-                                                                    <a className="tag">4 Floor</a>
-                                                                    <h3 className="blog-title mb-20">
-                                                                        <a>Shopping, entertainment and culinary outlets.</a>
-                                                                    </h3>
-                                                                    <ul className="blog-author mb-20">
-                                                                        <li>
-                                                                            <a>
-                                                                                <span>Last modified:</span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i className="far fa-calendar-alt"></i> 9 January 2024
-                                                                        </li>
-                                                                    </ul>
-
-                                                                    <hr></hr>
-                                                                    <h4>Jewelry, cosmetics & accessories</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Lock&Lock</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">4F-05,06,07</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">OKIA</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">4F-BR1</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr></hr>
-                                                                    <h4>Food and drinks</h4>
-                                                                    <div className="row">
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Dookki Dookki</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">4F-51</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                        <div className="col-lg-4">
-                                                                            <ul class="cases__tag white-bg">
-                                                                                <li>
-                                                                                    <div class="cases--author d-flex align-items-center">
-                                                                                        <h4 class="semi-02-title ml-15">Johnson Budae Tokbokki</h4>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a class="theme_btn theme_btn2 theme_btn_bg_02 d-btn">4F-40</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="tab-pane fade" id="floor5" role="tabpanel">
-                                                <div className="inner-content d-sm-flex align-items-center">
-                                                    <div className="inner-content mr-35">
-                                                        <div className="inner-content__text">
-                                                            <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
-                                                                <div className="blog__thumb mb-35">
                                                                     <MagnifierImage src="assets/img/map/5floor.jpg" zoom={3} />
                                                                 </div>
 
                                                                 <div className="blog__content">
-                                                                    <a className="tag">5 Floor</a>
+                                                                    <a className="tag">4 Floor</a>
                                                                     <h3 className="blog-title mb-20">
                                                                         <a>Entertainment and culinary outlets.</a>
                                                                     </h3>
