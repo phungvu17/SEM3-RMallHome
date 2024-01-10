@@ -74,36 +74,35 @@ function CentreMap() {
                             </div>
 
                             <div className="row">
-                                <div className="col-md-12 mx-auto">
+                                <div className="col-lg-9 col-md-12 mx-auto">
                                     <div className="about-wrap-04 mb-60 pl-40">
-                                        <div className="row">
-                                            <ul className="nav nav-tabs mb-35" id="myTab" role="tablist">
-                                                <li className="nav-item">
-                                                    <a className="nav-link active" data-bs-toggle="tab" href="#gfloor" role="tab" aria-selected="false">
-                                                        G Floor
-                                                    </a>
-                                                </li>
-                                                <li className="nav-item">
-                                                    <a className="nav-link" data-bs-toggle="tab" href="#floor2" role="tab" aria-selected="false">
-                                                        2 Floor
-                                                    </a>
-                                                </li>
-                                                <li className="nav-item">
-                                                    <a className="nav-link" data-bs-toggle="tab" href="#floor3" role="tab" aria-selected="false">
-                                                        3 Floor
-                                                    </a>
-                                                </li>
-                                                <li className="nav-item">
-                                                    <a className="nav-link" data-bs-toggle="tab" href="#floor4" role="tab" aria-selected="false">
-                                                        4 Floor
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <ul className="nav nav-tabs mb-35 justify-content-center" id="myTab" role="tablist">
+                                            <li className="nav-item">
+                                                <a className="nav-link active" data-bs-toggle="tab" href="#gfloor" role="tab" aria-selected="false">
+                                                    G Floor
+                                                </a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="nav-link" data-bs-toggle="tab" href="#floor2" role="tab" aria-selected="false">
+                                                    2 Floor
+                                                </a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="nav-link" data-bs-toggle="tab" href="#floor3" role="tab" aria-selected="false">
+                                                    3 Floor
+                                                </a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="nav-link" data-bs-toggle="tab" href="#floor4" role="tab" aria-selected="false">
+                                                    4 Floor
+                                                </a>
+                                            </li>
+                                        </ul>
+
                                         <div className="tab-content" id="myTabContent">
                                             <div className="tab-pane fade show active" id="gfloor" role="tabpanel">
                                                 <div className="inner-content d-sm-flex align-items-center">
-                                                    <div className="inner-content mr-35">
+                                                    <div className="inner-content">
                                                         <div className="inner-content__text">
                                                             <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
                                                                 <div className="blog__thumb mb-35">
@@ -215,7 +214,7 @@ function CentreMap() {
                                             </div>
                                             <div className="tab-pane fade" id="floor2" role="tabpanel">
                                                 <div className="inner-content d-sm-flex align-items-center">
-                                                    <div className="inner-content mr-35">
+                                                    <div className="inner-content">
                                                         <div className="inner-content__text">
                                                             <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
                                                                 <div className="blog__thumb mb-35">
@@ -303,7 +302,7 @@ function CentreMap() {
                                             </div>
                                             <div className="tab-pane fade" id="floor3" role="tabpanel">
                                                 <div className="inner-content d-sm-flex align-items-center">
-                                                    <div className="inner-content mr-35">
+                                                    <div className="inner-content">
                                                         <div className="inner-content__text">
                                                             <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
                                                                 <div className="blog__thumb mb-35">
@@ -443,7 +442,7 @@ function CentreMap() {
                                             </div>
                                             <div className="tab-pane fade" id="floor4" role="tabpanel">
                                                 <div className="inner-content d-sm-flex align-items-center">
-                                                    <div className="inner-content mr-35">
+                                                    <div className="inner-content">
                                                         <div className="inner-content__text">
                                                             <div className="blog blogs-02 mb-40 wow fadeInUp2 animated" data-wow-delay=".1s">
                                                                 <div className="blog__thumb mb-35">
