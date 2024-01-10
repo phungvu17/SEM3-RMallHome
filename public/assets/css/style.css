@@ -3815,7 +3815,8 @@ input.main-search-input:-ms-input-placeholder {
     top: -33px;
     left: 0;
     right: 0;
-    margin-top: 40px;    height: 65px;
+    margin-top: 40px;
+    height: 65px;
     border-radius: 70px;
     z-index: 3;
     box-shadow: 0 3px 24px rgb(0 0 0/10%);
@@ -3854,7 +3855,8 @@ input.main-search-input:-ms-input-placeholder {
     padding: 0;
     display: flex;
     align-items: center;
-    width: 100px;    right: 10px;
+    width: 100px;
+    right: 10px;
     justify-content: center;
     box-shadow: 0 3px 24px rgb(0 0 0/10%);
 }
@@ -7317,4 +7319,8 @@ input.main-search-input:-ms-input-placeholder {
     /* Set the size of the magnifier glass: */
     width: 150px;
     height: 150px;
+}
+
+.invalid-feedback {
+    display: block;
 }
