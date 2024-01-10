@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/pages/home";
 import About from "./components/pages/about";
 
-
 import Contact from "./components/pages/contact";
 import NotFound from "./components/pages/other/not-found";
 import Fashion from "./components/pages/shop";
@@ -33,8 +32,6 @@ function App() {
                 {/*Start About */}
                 <Route path="/about" element={<About />} />
                 {/* End About */}
-
-               
 
                 {/*Start Contact */}
                 <Route path="/contact" element={<Contact />} />
