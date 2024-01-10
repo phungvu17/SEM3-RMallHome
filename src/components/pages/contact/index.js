@@ -2,8 +2,119 @@ import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import { useEffect, useState } from "react";
 import Loading from "../../layouts/loading";
+import api from "../../../services/api";
+import url from "../../../services/url";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 function Contact() {
     const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    const [formErrors, setFormErrors] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        setFormErrors({ ...formErrors, [name]: "" });
+    };
+
+    const validateForm = () => {
+        let valid = true;
+        const newErrors = {};
+
+        if (!formData.name) {
+            newErrors.name = "Please enter your name.";
+            valid = false;
+        }
+
+        if (!formData.email) {
+            newErrors.email = "Please enter your email address.";
+            valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            newErrors.email = "Please enter a valid email address.";
+            valid = false;
+        }
+
+        let phoneRegex = /^\d+$/;
+
+        if (!formData.phone) {
+            newErrors.phone = "Please enter your phone.";
+            valid = false;
+        } else if (!phoneRegex.test(formData.phone)) {
+            newErrors.phone = "Phone number must contain only numeric digits.";
+            valid = false;
+        } else if (formData.phone.length < 10) {
+            newErrors.phone = "Phone number must have at least 10 digits";
+            valid = false;
+        }
+
+        if (!formData.message) {
+            newErrors.message = "Please enter message.";
+            valid = false;
+        } else if (formData.message.length < 3) {
+            newErrors.message = "Please enter message with at least 3 characters.";
+            valid = false;
+        }
+
+        setFormErrors(newErrors);
+        return valid;
+    };
+
+    const handleSubmitContact = async (e) => {
+        e.preventDefault();
+
+        if (validateForm()) {
+            console.log(formData);
+            try {
+                const contactRequest = await api.post(url.CONTACT.CREATE, formData, {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+                console.log(contactRequest.data);
+                if (contactRequest.status === 201) {
+                    setFormData({
+                        name: "",
+                        email: "",
+                        phone: "",
+                        message: "",
+                    });
+                    toast.success("Sent successfully!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                }
+            } catch (error) {
+                toast.error("An error occurred. Please try again!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            }
+        }
+    };
+
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
@@ -33,14 +144,14 @@ function Contact() {
                                             <h2 className="page-title">Contact</h2>
                                             <ul className="breadcrumb-list">
                                                 <li>
-                                                    <a href="index.html">
+                                                    <Link to="/">
                                                         Home <i className="far fa-chevron-right"></i>
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="#!" className="active">
+                                                    <Link to="" className="active">
                                                         Contact
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -71,7 +182,9 @@ function Contact() {
                                             </div>
                                             <div className="contacts__text">
                                                 <h4 className="semi-02-title semi-02-title__custom">Phone Number</h4>
-                                                <h5>+02 123 456 7894</h5>
+                                                <h5>
+                                                    <a href="tel:01234567894">+0123 456 7894</a>
+                                                </h5>
                                             </div>
                                         </div>
                                         <div className="contacts d-flex align-items-center mb-30">
@@ -81,7 +194,7 @@ function Contact() {
                                             <div className="contacts__text">
                                                 <h4 className="semi-02-title semi-02-title__custom">Email Address</h4>
                                                 <h5>
-                                                    <a href="#!" className="__cf_email__" data-cfemail="1871767e77587d60797568747d367b7775">
+                                                    <a href="mailto:ramall@contact.com" className="__cf_email__">
                                                         ramall@contact.com
                                                     </a>
                                                 </h5>
@@ -110,27 +223,33 @@ function Contact() {
                                             <h2 className="mt-10">Feel Free To Send Message.</h2>
                                         </div>
                                         <div className="main-contact-area">
-                                            <form id="contact-form">
+                                            <form id="contact-form" onSubmit={handleSubmitContact}>
                                                 <div className="row">
                                                     <div className="col-md-6">
                                                         <div className="input-area mb-20">
-                                                            <input type="text" name="name" className="form-control" placeholder="Your Name" required autoFocus />
+                                                            <input type="text" name="name" className="form-control" placeholder="Your Name" value={formData.name} onChange={handleChange} autoFocus />
+                                                            {formErrors.name && <p className="invalid-feedback">{formErrors.name}</p>}
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <div className="input-area mb-20">
-                                                            <input type="text" className="form-control" name="email" placeholder="Email Address" required />
+                                                            <input type="email" className="form-control" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} />
+                                                            {formErrors.email && <p className="invalid-feedback">{formErrors.email}</p>}
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className="input-area mb-20">
-                                                    <input type="text" className="form-control" name="subject" placeholder="Subject" required />
+                                                    <input type="tel" className="form-control" name="phone" placeholder="Your phone" value={formData.phone} onChange={handleChange} />
+                                                    {formErrors.phone && <p className="invalid-feedback">{formErrors.phone}</p>}
                                                 </div>
                                                 <div className="input-area mb-20">
-                                                    <textarea name="message" cols="30" rows="10" placeholder="Message" required></textarea>
+                                                    <textarea name="message" cols="30" rows="10" placeholder="Message" value={formData.message} onChange={handleChange}></textarea>
+                                                    {formErrors.message && <p className="invalid-feedback">{formErrors.message}</p>}
                                                 </div>
                                                 <div className="input-btn">
-                                                    <button className="theme_btn theme_btn_bg large_btn">Send message</button>
+                                                    <button type="submit" className="theme_btn theme_btn_bg large_btn">
+                                                        Send message
+                                                    </button>
                                                 </div>
                                                 <div className="col-md-12 mt-3">
                                                     <div className="form-messege text-success"></div>
