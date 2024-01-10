@@ -1,11 +1,36 @@
 import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import Loading from "../../layouts/loading";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import api from "../../../services/api";
+import url from "../../../services/url";
 
 
 function Fashion (){
+    const [shop , setShop] = useState([]);
+    // call api shop
+    const loadShop = useCallback(async()=>{
+        try{
+            const shopRespose = await api.get(url.SHOP.LIST)
+
+            setShop(shopRespose.data);
+            console.log('Shop Data:', shopRespose.data);
+
+        }catch(error){
+            console.log (error);
+
+        }
+    },[]);
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+
+        // Call the loadShop function to fetch data from the API
+        loadShop();
+    }, []);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -56,187 +81,43 @@ function Fashion (){
                     <section className="blog-area pt-130 pb-100">
                         <div className="container">
                             <div className="row">
-                                <div className="col-md-7 mx-auto">
-                                    <div className="section-title text-center mb-85 pl-50 pr-50 wow fadeInUp2 animated" data-wow-delay=".1s">
-                                        <h6>
-                                            <span>
-                                                <i className="far fa-heart"></i>
-                                            </span>{" "}
-                                            Our Blog
-                                        </h6>
-                                        <h2>
-                                            Latest <span>News</span> & Blog
-                                        </h2>
-                                        <p>
-                                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum
-                                            is that it has a more-or-less normal distribution of letters.
-                                        </p>
-                                    </div>
-                                </div>
+                            
                             </div>
                             <div className="row">
-                                <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".2s">
+                                {shop.map((item,index)=>
+                                <div key={index} className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".2s">
                                     <div className="blog mb-30">
                                         <div className="blog__thumb">
-                                            <img src="assets/img/blog/1.jpg" alt="" />
+                                            <img src={item.imagePath} alt="" />
                                         </div>
                                         <div className="blog__content">
                                             <a className="tag" href="blog-details.html">
-                                                funding
+                                               {item.categoryName}
                                             </a>
                                             <h3 className="blog-title mb-15">
-                                                <a href="blog-details.html">Standing Out From Crowds For Poor Children In The World</a>
+                                                <span >{item.name}</span>
                                             </h3>
-                                            <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
+                                           
                                             <ul className="blog-author">
                                                 <li>
                                                     <a className="mr-30" href="#!">
                                                         <img src="assets/img/blog/author.jpg" alt="" />
-                                                        <span>Juan Geisl</span>
+                                                        <span><i className="fa-solid fa-location-dot"></i>{item.floorName}</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <i className="far fa-calendar-alt"></i> 25 August 2022
+                                                <i className="fa-regular fa-clock"></i> {item.hoursOfOperation}
+                                                </li>
+                                                <li>
+                                                <i className="fa-regular fa-phone"></i>{item.contactInfo}
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
+                                   
                                 </div>
-                                <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".4s">
-                                    <div className="blog mb-30">
-                                        <div className="blog__thumb">
-                                            <img src="assets/img/blog/2.jpg" alt="" />
-                                        </div>
-                                        <div className="blog__content">
-                                            <a className="tag" href="blog-details.html">
-                                                charity
-                                            </a>
-                                            <h3 className="blog-title mb-15">
-                                                <a href="blog-details.html">Standing Out From Crowds For Poor Children In The World</a>
-                                            </h3>
-                                            <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
-                                            <ul className="blog-author">
-                                                <li>
-                                                    <a className="mr-30" href="#!">
-                                                        <img src="assets/img/blog/author.jpg" alt="" />
-                                                        <span>Tom Terrell</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <i className="far fa-calendar-alt"></i> 25 August 2022
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".6s">
-                                    <div className="blog mb-30">
-                                        <div className="blog__thumb">
-                                            <img src="assets/img/blog/3.jpg" alt="" />
-                                        </div>
-                                        <div className="blog__content">
-                                            <a className="tag" href="blog-details.html">
-                                                children
-                                            </a>
-                                            <h3 className="blog-title mb-15">
-                                                <a href="blog-details.html">Standing Out From Crowds For Poor Children In The World</a>
-                                            </h3>
-                                            <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
-                                            <ul className="blog-author">
-                                                <li>
-                                                    <a className="mr-30" href="#!">
-                                                        <img src="assets/img/blog/author.jpg" alt="" />
-                                                        <span>Jesse Dalla</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <i className="far fa-calendar-alt"></i> 25 August 2022
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".8s">
-                                    <div className="blog mb-30">
-                                        <div className="blog__thumb">
-                                            <img src="assets/img/blog/1.jpg" alt="" />
-                                        </div>
-                                        <div className="blog__content">
-                                            <a className="tag" href="blog-details.html">
-                                                funding
-                                            </a>
-                                            <h3 className="blog-title mb-15">
-                                                <a href="blog-details.html">Standing Out From Crowds For Poor Children In The World</a>
-                                            </h3>
-                                            <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
-                                            <ul className="blog-author">
-                                                <li>
-                                                    <a className="mr-30" href="#!">
-                                                        <img src="assets/img/blog/author.jpg" alt="" />
-                                                        <span>Juan Geisl</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <i className="far fa-calendar-alt"></i> 25 August 2022
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay="1s">
-                                    <div className="blog mb-30">
-                                        <div className="blog__thumb">
-                                            <img src="assets/img/blog/2.jpg" alt="" />
-                                        </div>
-                                        <div className="blog__content">
-                                            <a className="tag" href="blog-details.html">
-                                                charity
-                                            </a>
-                                            <h3 className="blog-title mb-15">
-                                                <a href="blog-details.html">Standing Out From Crowds For Poor Children In The World</a>
-                                            </h3>
-                                            <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
-                                            <ul className="blog-author">
-                                                <li>
-                                                    <a className="mr-30" href="#!">
-                                                        <img src="assets/img/blog/author.jpg" alt="" />
-                                                        <span>Tom Terrell</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <i className="far fa-calendar-alt"></i> 25 August 2022
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay="1.2s">
-                                    <div className="blog mb-30">
-                                        <div className="blog__thumb">
-                                            <img src="assets/img/blog/3.jpg" alt="" />
-                                        </div>
-                                        <div className="blog__content">
-                                            <a className="tag" href="blog-details.html">
-                                                children
-                                            </a>
-                                            <h3 className="blog-title mb-15">
-                                                <a href="blog-details.html">Standing Out From Crowds For Poor Children In The World</a>
-                                            </h3>
-                                            <p className="mb-25">There are many variations of passages available but the majority have suffered alteration.</p>
-                                            <ul className="blog-author">
-                                                <li>
-                                                    <a className="mr-30" href="#!">
-                                                        <img src="assets/img/blog/author.jpg" alt="" />
-                                                        <span>Jesse Dalla</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <i className="far fa-calendar-alt"></i> 25 August 2022
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                 )}
+                             
                             </div>
                             <div className="row">
                                 <div className="col-xl-12">

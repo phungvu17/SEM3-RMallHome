@@ -72,16 +72,16 @@ function Header() {
                                             </a>
                                             <ul class="submenu">
                                                 <li>
-                                                    <NavLink to="/Fashion">Fashion</NavLink>
+                                                    <NavLink to="/fashion">Fashion</NavLink>
                                                 </li>
                                                 <li>
-                                                    <NavLink to="/Cuisine">Cuisine</NavLink>
+                                                    <NavLink to="/cuisine">Cuisine</NavLink>
                                                 </li>
                                                 <li>
-                                                    <NavLink to="/Entertainment">Entertainment</NavLink>
+                                                    <NavLink to="/entertainment">Entertainment</NavLink>
                                                 </li>
                                                 <li>
-                                                    <NavLink to="/Other"> Other</NavLink>
+                                                    <NavLink to="/other"> Other</NavLink>
                                                 </li>
                                             </ul>
                                         </li>
@@ -95,9 +95,7 @@ function Header() {
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <NavLink to="/case">Case</NavLink>
-                                        </li>
+                                       
                                         <li>
                                             <NavLink to="/about">About Us</NavLink>
                                         </li>

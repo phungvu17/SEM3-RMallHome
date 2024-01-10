@@ -4,6 +4,11 @@ const url = {
     CONTACT: {
         CREATE: "feedback/create",
     },
+
+    SHOP: {
+        LIST: "shop/get-all"
+
+    },
 };
 
 export default url;
