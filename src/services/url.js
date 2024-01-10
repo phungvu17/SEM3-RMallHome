@@ -6,8 +6,17 @@ const url = {
     },
 
     SHOP: {
-        LIST: "shop/get-all"
+        LIST: "shop/get-all",
+        GETBYFLOOR: "shop/get-all-by-floor/{}",
+        GETBYCATEGORY: "shop/get-all-by-category/{}",
+    },
 
+    FLOOR: {
+        LIST: "floor/get-all",
+    },
+
+    CATEGORY: {
+        LIST: "category/get-all",
     },
 };
 
