@@ -6,22 +6,18 @@ import { Link } from "react-router-dom";
 import api from "../../../services/api";
 import url from "../../../services/url";
 
-
-function Fashion (){
-    const [shop , setShop] = useState([]);
+function Fashion() {
+    const [shop, setShop] = useState([]);
     // call api shop
-    const loadShop = useCallback(async()=>{
-        try{
-            const shopRespose = await api.get(url.SHOP.LIST)
+    const loadShop = useCallback(async () => {
+        try {
+            const shopResponse = await api.get(url.SHOP.LIST);
 
-            setShop(shopRespose.data);
-            console.log('Shop Data:', shopRespose.data);
-
-        }catch(error){
-            console.log (error);
-
+            setShop(shopResponse.data);
+        } catch (error) {
+            console.log(error);
         }
-    },[]);
+    }, []);
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
@@ -66,9 +62,9 @@ function Fashion (){
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <a href="#!" className="active">
-                                                    Fashion
-                                                    </a>
+                                                    <Link to="" className="active">
+                                                        Fashion
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -80,44 +76,34 @@ function Fashion (){
 
                     <section className="blog-area pt-130 pb-100">
                         <div className="container">
+                            <div className="row"></div>
                             <div className="row">
-                            
-                            </div>
-                            <div className="row">
-                                {shop.map((item,index)=>
-                                <div key={index} className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".2s">
-                                    <div className="blog mb-30">
-                                        <div className="blog__thumb">
-                                            <img src={item.imagePath} alt="" />
-                                        </div>
-                                        <div className="blog__content">
-                                            <a className="tag" href="blog-details.html">
-                                               {item.categoryName}
-                                            </a>
-                                            <h3 className="blog-title mb-15">
-                                                <span >{item.name}</span>
-                                            </h3>
-                                           
-                                            <ul className="blog-author">
-                                                <li>
-                                                    <a className="mr-30" href="#!">
-                                                        <img src="assets/img/blog/author.jpg" alt="" />
-                                                        <span><i className="fa-solid fa-location-dot"></i>{item.floorName}</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                <i className="fa-regular fa-clock"></i> {item.hoursOfOperation}
-                                                </li>
-                                                <li>
-                                                <i className="fa-regular fa-phone"></i>{item.contactInfo}
-                                                </li>
-                                            </ul>
+                                {shop.map((item, index) => (
+                                    <div key={index} className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".2s">
+                                        <div className="blog mb-30">
+                                            <div className="blog__thumb">
+                                                <Link to="">
+                                                    <img src={item.imagePath} alt="" className="shop-logo" />
+                                                </Link>
+                                            </div>
+                                            <div className="blog__content blog__content-custom__shop">
+                                                <p className="tag line-clamp">{item.categoryName}</p>
+                                                <h3 className="blog-title mb-0">
+                                                    <Link to="">{item.name}</Link>
+                                                </h3>
+
+                                                <div className="d-flex align-items-center justify-content-between mt-2">
+                                                    <p>
+                                                        <i className="fal fa-alarm-clock"></i> {item.hoursOfOperation}
+                                                    </p>
+                                                    <p>
+                                                        <i className="fal fa-map-marked-alt"></i> {item.floorName}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                   
-                                </div>
-                                 )}
-                             
+                                ))}
                             </div>
                             <div className="row">
                                 <div className="col-xl-12">

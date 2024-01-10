@@ -24,24 +24,24 @@ function Header() {
                             <div className="top-right-nav">
                                 <ul>
                                     <li>
-                                        <a href="#">
+                                        <Link to="">
                                             <i className="fab fa-facebook-f"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <Link to="">
                                             <i className="fab fa-twitter"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <Link to="">
                                             <i className="fab fa-youtube"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <Link to="">
                                             <i className="fab fa-linkedin-in"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -95,7 +95,7 @@ function Header() {
                                                 </li>
                                             </ul>
                                         </li>
-                                       
+
                                         <li>
                                             <NavLink to="/about">About Us</NavLink>
                                         </li>
