@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import Loading from "../../layouts/loading";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import MagnifierImage from "./ImageMagnifier";
 import url from "../../../services/url";
 
@@ -77,16 +77,18 @@ function CentreMap() {
                         <div className="row">
                             {storesByCategory[category].map((store) => (
                                 <div className="col-lg-4" key={store.id}>
-                                    <ul className="cases__tag white-bg">
-                                        <li>
-                                            <div className="cases--author d-flex align-items-center">
-                                                <h4 className="semi-02-title ml-15">{store.name}</h4>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span className="theme_btn theme_btn2 theme_btn_bg_02 d-btn">{store.address}</span>
-                                        </li>
-                                    </ul>
+                                    <NavLink to={`/shop-detail/${store.slug}`}>
+                                        <ul className="cases__tag white-bg">
+                                            <li>
+                                                <div className="cases--author d-flex align-items-center">
+                                                    <h4 className="semi-02-title ml-15">{store.name}</h4>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span className="theme_btn theme_btn2 theme_btn_bg_02 d-btn">{store.address}</span>
+                                            </li>
+                                        </ul>
+                                    </NavLink>
                                 </div>
                             ))}
                         </div>
