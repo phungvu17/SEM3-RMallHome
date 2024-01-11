@@ -1,14 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/pages/home";
 import About from "./components/pages/about";
-
 import Contact from "./components/pages/contact";
 import NotFound from "./components/pages/other/not-found";
-import Fashion from "./components/pages/shop";
-import Cuisine from "./components/pages/shop/cuisine";
-import Entertainment from "./components/pages/shop/entertaiment";
-import Other from "./components/pages/shop/other";
 import CentreMap from "./components/pages/utilities/centremap";
+import Shopping from "./components/pages/shop";
+import ShopDetail from "./components/pages/shop/detail";
 
 function App() {
     return (
@@ -19,10 +16,8 @@ function App() {
                 {/* End Home */}
 
                 {/* Start Shop */}
-                <Route path="/fashion" element={<Fashion />} />
-                <Route path="/cuisine" element={<Cuisine />} />
-                <Route path="/entertainment" element={<Entertainment />} />
-                <Route path="/other" element={<Other />} />
+                <Route path="/shop/:slug" element={<Shopping />} />
+                <Route path="/shop-detail/:slug" element={<ShopDetail />} />
                 {/* End Shop*/}
 
                 {/*Start Utilities */}

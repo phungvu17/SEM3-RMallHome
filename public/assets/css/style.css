@@ -7334,6 +7334,11 @@ input.main-search-input:-ms-input-placeholder {
     object-fit: cover;
 }
 
+.shop-image {
+    height: 500px;
+    object-fit: cover;
+}
+
 .line-clamp {
     display: -webkit-box;
     -webkit-line-clamp: 2;

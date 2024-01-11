@@ -301,9 +301,9 @@ function Layout({ children }) {
                     enabled: true,
                 },
             });
-            $(document).ready(function () {
-                $("select").niceSelect();
-            });
+            // $(document).ready(function () {
+            //     $("select").niceSelect();
+            // });
             var date = new Date().getFullYear();
             $("#date").html(date);
         }, []);
