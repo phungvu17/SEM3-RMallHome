@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import api from "../../services/api";
+import url from "../../services/url";
 function Header() {
     const [query, setQuery] = useState("");
 
@@ -10,6 +12,20 @@ function Header() {
     const handleSubmit = (e) => {
         e.preventDefault();
     };
+
+    const [categories, setCategories] = useState([]);
+
+    //hiển thị danh sách category
+    useEffect(() => {
+        const loadCategories = async () => {
+            try {
+                const response = await api.get(url.CATEGORY.LIST);
+                setCategories(response.data);
+            } catch (error) {}
+        };
+        loadCategories();
+    }, []);
+
     return (
         <header id="top-menu">
             <div className="header-top-area pos-rel pt-10 pb-15 d-none d-lg-block">
@@ -67,28 +83,23 @@ function Header() {
                                             <NavLink to="/">Home</NavLink>
                                         </li>
                                         <li>
-                                            <a href="">
-                                                Shop <i class="far fa-chevron-down"></i>
-                                            </a>
+                                            <Link to="">
+                                                Shopping <i class="far fa-chevron-down"></i>
+                                            </Link>
                                             <ul class="submenu">
-                                                <li>
-                                                    <NavLink to="/fashion">Fashion</NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink to="/cuisine">Cuisine</NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink to="/entertainment">Entertainment</NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink to="/other"> Other</NavLink>
-                                                </li>
+                                                {categories.map((item, index) => {
+                                                    return (
+                                                        <li>
+                                                            <NavLink to={`/shop/${item.slug}`}>{item.name}</NavLink>
+                                                        </li>
+                                                    );
+                                                })}
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <Link to="">
                                                 Utilities <i class="far fa-chevron-down"></i>
-                                            </a>
+                                            </Link>
                                             <ul class="submenu">
                                                 <li>
                                                     <NavLink to="/centre-map">Centre Map</NavLink>

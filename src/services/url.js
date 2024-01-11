@@ -7,6 +7,8 @@ const url = {
 
     SHOP: {
         LIST: "shop/get-all",
+        DETAIL: "shop/detail/{}",
+        RELATEDS: "shop/relateds/{}",
         GETBYFLOOR: "shop/get-all-by-floor/{}",
         GETBYCATEGORY: "shop/get-all-by-category/{}",
     },
