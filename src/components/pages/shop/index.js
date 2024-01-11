@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet";
 import Layout from "../../layouts";
 import Loading from "../../layouts/loading";
-import { useCallback, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import api from "../../../services/api";
 import url from "../../../services/url";
 
@@ -16,34 +16,41 @@ function Shopping() {
     }, []);
 
     const { slug } = useParams();
-    const [allShops, setAllShops] = useState([]);
     const [shops, setShops] = useState([]);
+    const [allShops, setAllShops] = useState([]);
     const [floors, setFloors] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [isSearchingOrFiltering, setIsSearchingOrFiltering] = useState(false);
+    const navigate = useNavigate();
 
-    // hiển thị toàn bộ list shop
+    // chuyển đến trang shop cac shop khac
+    const handleNavLinkClick = (newSlug) => {
+        if (newSlug === "") {
+            // Nếu người dùng chọn "Toàn bộ gian hàng", hiển thị toàn bộ shops
+            setShops(allShops);
+        } else {
+            navigate(`/shop/${newSlug}`);
+        }
+    };
+
+    //api hien thi all shops
     useEffect(() => {
         api.get(url.SHOP.LIST)
             .then((response) => {
                 setAllShops(response.data);
-                // console.log(response.data);
             })
             .catch((error) => {});
+        // }
     }, []);
 
     //hien thi thong tin shop theo category
     useEffect(() => {
-        if (isSearchingOrFiltering) {
-            setShops(allShops); //dùng allShops khi tìm kiếm và lọc
-        } else {
-            api.get(`${url.SHOP.GETBYCATEGORY.replace("{}", slug)}`)
-                .then((response) => {
-                    setShops(response.data);
-                })
-                .catch((error) => {});
-        }
-    }, [slug, isSearchingOrFiltering, allShops]);
+        api.get(`${url.SHOP.GETBYCATEGORY.replace("{}", slug)}`)
+            .then((response) => {
+                setShops(response.data);
+            })
+            .catch((error) => {});
+        // }
+    }, [slug]);
 
     //hiển thị floor và category trên select
     useEffect(() => {
@@ -63,24 +70,16 @@ function Shopping() {
     //search, filter
     const [searchTitle, setSearchTitle] = useState("");
     const [selectedFloor, setSelectedFloor] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState("");
     const handleSearchTitleChange = (e) => {
         setSearchTitle(e.target.value);
-        setIsSearchingOrFiltering(true);
     };
     const handleFloorChange = (e) => {
         setSelectedFloor(e.target.value);
-        setIsSearchingOrFiltering(true);
-    };
-    const handleCategoryChange = (e) => {
-        setSelectedCategory(e.target.value);
-        setIsSearchingOrFiltering(true);
     };
     const filterShops = (shop) => {
         const titleMatch = shop.name.toLowerCase().includes(searchTitle.toLowerCase());
         const floorMatch = !selectedFloor || shop.floorName === selectedFloor;
-        const categoryMatch = !selectedCategory || shop.categoryName === selectedCategory;
-        return titleMatch && floorMatch && categoryMatch;
+        return titleMatch && floorMatch;
     };
 
     //paginate
@@ -172,10 +171,10 @@ function Shopping() {
                                 </div>
                                 <div className="col-xl-3">
                                     <div className="input-area mb-10">
-                                        <select className="form-control" value={selectedCategory} onChange={handleCategoryChange}>
-                                            <option value="">Filter by category</option>
+                                        <select className="form-control" onChange={(e) => handleNavLinkClick(e.target.value)}>
+                                            <option value="">Booths</option>
                                             {categories.map((category) => (
-                                                <option key={category.id} value={category.name}>
+                                                <option key={category.id} value={category.slug}>
                                                     {category.name}
                                                 </option>
                                             ))}
