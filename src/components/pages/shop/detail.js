@@ -6,7 +6,6 @@ import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import api from "../../../services/api";
 import url from "../../../services/url";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 function ShopDetail() {
     const [loading, setLoading] = useState(false);
@@ -153,7 +152,12 @@ function ShopDetail() {
                                         </div>
                                         <div className="events-text-box mb-45">
                                             <h3 className="mb-30">Description of the booth:</h3>
-                                            <p className="mb-15">{shop.description}</p>
+                                            <p
+                                                className="mb-15"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: shop.description,
+                                                }}
+                                            ></p>
                                         </div>
 
                                         {shop.products && shop.products.length > 0 && (
