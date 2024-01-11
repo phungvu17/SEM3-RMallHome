@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import api from "../../services/api";
-import url from "../../services/url";
 function Header() {
     const [query, setQuery] = useState("");
 
@@ -12,19 +10,6 @@ function Header() {
     const handleSubmit = (e) => {
         e.preventDefault();
     };
-
-    const [categories, setCategories] = useState([]);
-
-    //hiển thị danh sách category
-    useEffect(() => {
-        const loadCategories = async () => {
-            try {
-                const response = await api.get(url.CATEGORY.LIST);
-                setCategories(response.data);
-            } catch (error) {}
-        };
-        loadCategories();
-    }, []);
 
     return (
         <header id="top-menu">
@@ -87,13 +72,18 @@ function Header() {
                                                 Shopping <i class="far fa-chevron-down"></i>
                                             </Link>
                                             <ul class="submenu">
-                                                {categories.map((item, index) => {
-                                                    return (
-                                                        <li>
-                                                            <NavLink to={`/shop/${item.slug}`}>{item.name}</NavLink>
-                                                        </li>
-                                                    );
-                                                })}
+                                                <li>
+                                                    <NavLink to="/shop/shopping-centers">Shopping Centers</NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to="/shop/food-court">Food Court</NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to="/shop/entertainment">Entertainment</NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to="/shop/other">Other</NavLink>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>

@@ -48,8 +48,7 @@ function ShopDetail() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 1,
+        slidesToShow: shop.products && shop.products.length > 1 ? 2 : 1,
         slidesToScroll: 1,
         responsive: [
             {
@@ -75,14 +74,13 @@ function ShopDetail() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToShow: relatedShop.length >= 4 ? 4 : relatedShop.length,
         slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: relatedShop.length >= 4 ? 2 : relatedShop.length,
                     slidesToScroll: 1,
                     infinite: true,
                     dots: true,
@@ -150,64 +148,15 @@ function ShopDetail() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="events-text-box mb-45">
-                                            <h3 className="mb-30">Description of the booth:</h3>
-                                            <p
-                                                className="mb-15"
-                                                dangerouslySetInnerHTML={{
-                                                    __html: shop.description,
-                                                }}
-                                            ></p>
-                                        </div>
-
-                                        {shop.products && shop.products.length > 0 && (
-                                            <>
-                                                <h3 className="mb-30">Some products of the booth:</h3>
-                                                <div class="row">
-                                                    <Slider {...sliderSettings}>
-                                                        {shop.products?.map((product) => (
-                                                            <div className="testimonial-item pos-rel wow fadeInUp2 animated" data-wow-delay=".3s">
-                                                                <div className="author_box d-flex align-items-center mb-25">
-                                                                    <div className="author_box__img mr-15">
-                                                                        <img src={product.image} alt="" width="70px" height="70px" style={{ objectFit: "cover" }} />
-                                                                    </div>
-                                                                    <div className="author_box__content">
-                                                                        <h4 className="semi-02-title">{product.name}</h4>
-                                                                        <p>{product.price}$</p>
-                                                                        <div className="review-icon">
-                                                                            {[1, 2, 3, 4, 5].map((star) => (
-                                                                                <a key={star} href="#">
-                                                                                    <i className="fas fa-star"></i>
-                                                                                </a>
-                                                                            ))}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <p className="semi-title mb-10">{product.description}</p>
-                                                            </div>
-                                                        ))}
-                                                    </Slider>
-                                                </div>
-                                            </>
-                                        )}
-
-                                        <div className="mb-45" style={{ marginTop: "30px" }}>
-                                            <p>
-                                                <span className="text-danger">*</span> Note: When visiting stores at RMall, be wary of discounts, as they often come with strings attached. Pay
-                                                attention to product quality and compare prices before deciding to shop. Avoid buying counterfeit items by carefully checking the information and
-                                                labels. Keep your personal assets and payment cards safe when near crowded areas. Finally, enjoy the comfortable and fun atmosphere when shopping for
-                                                the most enjoyable experience at the mall.
-                                            </p>
-                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-xl-4 col-lg-4 col-md-12">
                                     <div className="events-details-right">
                                         <div className="widget mb-30">
-                                            <div className="widget-post">
+                                            <div className="widget-post" style={{ height: "500px", paddingTop: "50px" }}>
                                                 <h3 className="cases-title mb-15">{shop.name}</h3>
                                                 <p className="mb-20">Category: {shop.categoryName}</p>
-                                                <div className="times__content mb-20">
+                                                <div className="times__content mb-20" style={{ marginTop: "40px" }}>
                                                     <h5>
                                                         <Link to="">Shop Location</Link>
                                                     </h5>
@@ -215,7 +164,7 @@ function ShopDetail() {
                                                         <i className="far fa-map-marker-alt"></i> {shop.floorName} ({shop.address})
                                                     </p>
                                                 </div>
-                                                <div className="times__content mb-20">
+                                                <div className="times__content mb-20" style={{ marginTop: "40px" }}>
                                                     <h5>
                                                         <Link to="">Hours Of Operation</Link>
                                                     </h5>
@@ -223,7 +172,7 @@ function ShopDetail() {
                                                         <i className="far fa-clock"></i> {shop.hoursOfOperation}
                                                     </p>
                                                 </div>
-                                                <div className="times__content mb-20">
+                                                <div className="times__content mb-20" style={{ marginTop: "40px" }}>
                                                     <h5>
                                                         <Link to="">Shop Contact</Link>
                                                     </h5>
@@ -234,6 +183,55 @@ function ShopDetail() {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="events-text-box mb-45">
+                                    <h3 className="mb-30">Description of the booth:</h3>
+                                    <p
+                                        className="mb-15"
+                                        dangerouslySetInnerHTML={{
+                                            __html: shop.description,
+                                        }}
+                                    ></p>
+                                </div>
+
+                                {shop.products && shop.products.length > 0 && (
+                                    <>
+                                        <h3 className="mb-30">Some products of the booth:</h3>
+                                        <div class="row">
+                                            <Slider {...sliderSettings}>
+                                                {shop.products?.map((product) => (
+                                                    <div className="testimonial-item pos-rel wow fadeInUp2 animated" data-wow-delay=".3s">
+                                                        <div className="author_box d-flex align-items-center mb-25">
+                                                            <div className="author_box__img mr-15">
+                                                                <img src={product.image} alt="" width="70px" height="70px" style={{ objectFit: "cover" }} />
+                                                            </div>
+                                                            <div className="author_box__content">
+                                                                <h4 className="semi-02-title">{product.name}</h4>
+                                                                <p>{product.price}$</p>
+                                                                <div className="review-icon">
+                                                                    {[1, 2, 3, 4, 5].map((star) => (
+                                                                        <a key={star} href="#">
+                                                                            <i className="fas fa-star"></i>
+                                                                        </a>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <p className="semi-title mb-10">{product.description}</p>
+                                                    </div>
+                                                ))}
+                                            </Slider>
+                                        </div>
+                                    </>
+                                )}
+
+                                <div className="mb-45" style={{ marginTop: "30px" }}>
+                                    <p>
+                                        <span className="text-danger">*</span> Note: When visiting stores at RMall, be wary of discounts, as they often come with strings attached. Pay attention to
+                                        product quality and compare prices before deciding to shop. Avoid buying counterfeit items by carefully checking the information and labels. Keep your personal
+                                        assets and payment cards safe when near crowded areas. Finally, enjoy the comfortable and fun atmosphere when shopping for the most enjoyable experience at the
+                                        mall.
+                                    </p>
                                 </div>
                             </div>
                             <div className="row" style={{ marginTop: "50px" }}>
@@ -256,7 +254,9 @@ function ShopDetail() {
                                                 <div className="blog__content blog__content-custom__shop">
                                                     <p className="tag line-clamp">{item.categoryName}</p>
                                                     <h3 className="blog-title mb-0">
-                                                        <div onClick={() => handleNavLinkClick(item.slug)}>{item.name}</div>
+                                                        <div onClick={() => handleNavLinkClick(item.slug)} style={{ cursor: "pointer" }}>
+                                                            {item.name}
+                                                        </div>
                                                     </h3>
 
                                                     <div className="d-flex align-items-center justify-content-between mt-2">
