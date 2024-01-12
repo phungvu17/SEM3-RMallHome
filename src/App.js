@@ -6,6 +6,7 @@ import NotFound from "./components/pages/other/not-found";
 import CentreMap from "./components/pages/utilities/centremap";
 import Shopping from "./components/pages/shop";
 import ShopDetail from "./components/pages/shop/detail";
+import Gallery from "./components/pages/utilities/gallery";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
 
                 {/*Start Utilities */}
                 <Route path="/centre-map" element={<CentreMap />} />
+                <Route path="/gallery" element={<Gallery />} />
                 {/* End Utilities */}
 
                 {/*Start About */}
