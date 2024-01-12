@@ -186,28 +186,28 @@ function Shopping() {
                             <div className="row" style={{ marginTop: "20px" }}>
                                 {filteredShops.map((item, index) => (
                                     <div key={index} className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp2 animated" data-wow-delay=".2s">
-                                        <div className="blog mb-30">
-                                            <div className="blog__thumb">
-                                                <Link to="">
-                                                    <img src={item.imagePath} alt="" className="shop-logo" />
-                                                </Link>
-                                            </div>
-                                            <div className="blog__content blog__content-custom__shop">
-                                                <p className="tag line-clamp">{item.categoryName}</p>
-                                                <h3 className="blog-title mb-0">
-                                                    <Link to={`/shop-detail/${item.slug}`}>{item.name}</Link>
-                                                </h3>
+                                        <Link to={`/shop-detail/${item.slug}`}>
+                                            <div className="blog mb-30">
+                                                <div className="blog__thumb">
+                                                    <Link to="">
+                                                        <img src={item.imagePath} alt="" className="shop-logo" />
+                                                    </Link>
+                                                </div>
+                                                <div className="blog__content blog__content-custom__shop">
+                                                    <p className="tag line-clamp">{item.categoryName}</p>
+                                                    <h3 className="blog-title mb-0">{item.name}</h3>
 
-                                                <div className="d-flex align-items-center justify-content-between mt-2">
-                                                    <p>
-                                                        <i className="fal fa-alarm-clock"></i> {item.hoursOfOperation}
-                                                    </p>
-                                                    <p>
-                                                        <i className="fal fa-map-marked-alt"></i> {item.floorName}
-                                                    </p>
+                                                    <div className="d-flex align-items-center justify-content-between mt-2">
+                                                        <p>
+                                                            <i className="fal fa-alarm-clock"></i> {item.hoursOfOperation}
+                                                        </p>
+                                                        <p>
+                                                            <i className="fal fa-map-marked-alt"></i> {item.floorName}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>
