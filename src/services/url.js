@@ -20,6 +20,10 @@ const url = {
     CATEGORY: {
         LIST: "category/get-all",
     },
+
+    GALLERY: {
+        LIST: "/gallery/get-all",
+    },
 };
 
 export default url;

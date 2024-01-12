@@ -2,7 +2,7 @@ function News() {
     return (
         <section className="blog-area pt-30 pb-30">
             <div className="container">
-                <div className="section-title text-center mb-20 pl-50 pr-50 d-flex align-items-center justify-content-between">
+                <div className="section-title text-center mb-20 d-flex align-items-center justify-content-between">
                     <h6>
                         <span>
                             <i className="far fa-heart"></i>

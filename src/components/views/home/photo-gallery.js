@@ -1,97 +1,232 @@
+// import { useEffect } from "react";
+// import { useState } from "react";
+// import api from "../../../services/api";
+// import url from "../../../services/url";
+// import { useRef } from "react";
+// import { useCallback } from "react";
+// import { Link } from "react-router-dom";
+// function PhotoGallery() {
+//     const [gallery, setGallery] = useState([]);
+
+//     const loadGallery = useCallback(async () => {
+//         try {
+//             const galleryResponse = await api.get(url.GALLERY.LIST);
+//             const firstFiveItems = galleryResponse.data.slice(0, 5);
+//             setGallery(firstFiveItems);
+//         } catch (error) {}
+//     }, []);
+
+//     useEffect(() => {
+//         loadGallery();
+//     }, [loadGallery]);
+
+//     const galleryRef = useRef(null);
+
+//     useEffect(() => {
+//         const adjustImageSizes = () => {
+//             const galleryThumbs = galleryRef.current.querySelectorAll(".gallery__thumb");
+
+//             const imagesPerRow = 1; // Adjust this value based on your layout
+//             let rowAspectRatios = Array(imagesPerRow).fill(1);
+
+//             galleryThumbs.forEach((thumb, index) => {
+//                 const image = thumb.querySelector(".gallery-image");
+//                 const aspectRatio = image.width / image.height;
+
+//                 // Track the maximum aspect ratio within each row
+//                 const rowIndex = index % imagesPerRow;
+//                 rowAspectRatios[rowIndex] += aspectRatio;
+//             });
+
+//             // Calculate the average aspect ratio for each row
+//             const averageRowAspectRatios = rowAspectRatios.map((sum, count) => sum / (galleryThumbs.length / imagesPerRow));
+
+//             // Set the height of each image based on the average aspect ratio of its row
+//             galleryThumbs.forEach((thumb, index) => {
+//                 const image = thumb.querySelector(".gallery-image");
+//                 const rowIndex = index % imagesPerRow;
+//                 const newHeight = thumb.offsetWidth / averageRowAspectRatios[rowIndex];
+//                 image.style.height = `${newHeight}px`;
+//             });
+//         };
+
+//         adjustImageSizes();
+
+//         window.addEventListener("resize", adjustImageSizes);
+
+//         return () => {
+//             window.removeEventListener("resize", adjustImageSizes);
+//         };
+//     }, [gallery]);
+
+//     return (
+//         <>
+//             <section className="gallery-area pt-130 pb-100">
+//                 <div className="container">
+//                     <div className="row">
+//                         <div class="section-title text-center d-flex align-items-center justify-content-between mb-35">
+//                             <h6>
+//                                 <span>
+//                                     <i class="far fa-heart"></i>
+//                                 </span>
+//                                 Photo Gallery
+//                             </h6>
+//                             <Link to="/gallery" class="theme_btn theme_btn_bg">
+//                                 View more
+//                                 <span>
+//                                     <i class="fas fa-arrow-right"></i>
+//                                 </span>
+//                             </Link>
+//                         </div>
+//                     </div>
+
+//                     <div className="row" ref={galleryRef}>
+//                         {gallery.map((item, index) => (
+//                             <div className={`col-xl-${index < 2 ? "6" : "4"} col-lg-${index < 2 ? "6" : "4"} col-md-${index < 2 ? "12" : "6"}`} key={index}>
+//                                 <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
+//                                     <div className="gallery__thumb pos-rel mb-30">
+//                                         <img src={item.imagePath} alt="gallery" className="gallery-image" />
+//                                     </div>
+//                                     <div className="gallery__content gallery__content-custom">
+//                                         <h4 className="gallery__content-title">{item.productName}</h4>
+//                                         <p className="gallery__content-desc">{item.description}</p>
+//                                     </div>
+//                                 </div>
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </section>
+
+//             <div className="intro-video-area">
+//                 <div className="container">
+//                     <div className="col-12 mx-auto">
+//                         <div
+//                             className="intro-video-content pos-rel mb-30"
+//                             style={{
+//                                 backgroundImage: "url( assets/img/gallery/4.jpeg)",
+//                             }}
+//                         >
+//                             <div className="video-area pos-abl">
+//                                 <a href="https://youtu.be/NrmMk1Myrxc?si=dahwPQGlQoqp27cp" className="popup-video">
+//                                     <i className="fas fa-play"></i>
+//                                 </a>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     );
+// }
+
+// export default PhotoGallery;
+
+import { useEffect } from "react";
+import { useState } from "react";
+import api from "../../../services/api";
+import url from "../../../services/url";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 function PhotoGallery() {
+    const [gallery, setGallery] = useState([]);
+
+    useEffect(() => {
+        const loadGallery = async () => {
+            try {
+                const galleryResponse = await api.get(url.GALLERY.LIST);
+                const firstFiveItems = galleryResponse.data.slice(0, 5);
+                setGallery(firstFiveItems);
+            } catch (error) {
+                console.error("Error loading gallery:", error);
+            }
+        };
+
+        loadGallery();
+    }, []);
+
+    const galleryRef = useRef(null);
+
+    useEffect(() => {
+        const adjustImageSizes = () => {
+            const galleryThumbs = galleryRef.current.querySelectorAll(".gallery__thumb");
+
+            const imagesPerRow = 1;
+            let rowAspectRatios = Array(imagesPerRow).fill(1);
+
+            galleryThumbs.forEach((thumb, index) => {
+                const image = thumb.querySelector(".gallery-image");
+                const aspectRatio = image.width / image.height;
+
+                const rowIndex = index % imagesPerRow;
+                rowAspectRatios[rowIndex] += aspectRatio;
+            });
+
+            const averageRowAspectRatios = rowAspectRatios.map((sum, count) => sum / (galleryThumbs.length / imagesPerRow));
+
+            galleryThumbs.forEach((thumb, index) => {
+                const image = thumb.querySelector(".gallery-image");
+                const rowIndex = index % imagesPerRow;
+                const newHeight = thumb.offsetWidth / averageRowAspectRatios[rowIndex];
+                image.style.height = `${newHeight}px`;
+            });
+        };
+
+        adjustImageSizes();
+
+        const handleResize = () => {
+            adjustImageSizes();
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [gallery]);
+
     return (
         <>
             <section className="gallery-area pt-130 pb-100">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-7 mx-auto">
-                            <div className="section-title text-center mb-85 pl-50 pr-50 wow fadeInUp2 animated" data-wow-delay=".1s">
-                                <h6>
-                                    <span>
-                                        <i className="far fa-heart"></i>
-                                    </span>
-                                    Photo Gallery
-                                </h6>
-                                <h2>Our Photo Gallery</h2>
-                                <p>
-                                    Welcome to our "Image Collection"! Browse through high quality images, we love to share great moments about products and special events. Come explore and feel the
-                                    wonderful atmosphere we bring!
-                                </p>
-                            </div>
+                        <div class="section-title text-center d-flex align-items-center justify-content-between mb-35">
+                            <h6>
+                                <span>
+                                    <i class="far fa-heart"></i>
+                                </span>
+                                Photo Gallery
+                            </h6>
+                            <Link to="/gallery" class="theme_btn theme_btn_bg">
+                                View more
+                                <span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </Link>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-xl-6 col-lg-6 col-md-12">
-                            <div className="row">
-                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                    <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
-                                        <div className="gallery__thumb pos-rel mb-30">
-                                            <img src="assets/img/gallery/1.jpeg" alt="" />
-                                        </div>
-                                        <div className="gallery__content">
-                                            <a className="popup-image" href="assets/img/gallery/1.jpeg">
-                                                <i className="fa fa-search-plus"></i>
-                                            </a>
-                                        </div>
+
+                    <div className="row" ref={galleryRef}>
+                        {gallery.map((item, index) => (
+                            <div className={`col-xl-${index < 2 ? "6" : "4"} col-lg-${index < 2 ? "6" : "4"} col-md-${index < 2 ? "12" : "6"}`} key={index}>
+                                <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
+                                    <div className="gallery__thumb pos-rel mb-30">
+                                        <img src={item.imagePath} alt="gallery" className="gallery-image" />
                                     </div>
-                                </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                    <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
-                                        <div className="gallery__thumb pos-rel mb-30">
-                                            <img src="assets/img/gallery/2.jpeg" alt="" />
-                                        </div>
-                                        <div className="gallery__content">
-                                            <a className="popup-image" href="assets/img/gallery/2.jpeg">
-                                                <i className="fa fa-search-plus"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                    <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
-                                        <div className="gallery__thumb pos-rel mb-30">
-                                            <img src="assets/img/gallery/3.jpeg" alt="" />
-                                        </div>
-                                        <div className="gallery__content">
-                                            <a className="popup-image" href="assets/img/gallery/3.jpeg">
-                                                <i className="fa fa-search-plus"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                    <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
-                                        <div className="gallery__thumb pos-rel mb-30">
-                                            <img src="assets/img/gallery/4.jpeg" alt="" />
-                                        </div>
-                                        <div className="gallery__content">
-                                            <a className="popup-image" href="assets/img/gallery/4.jpeg">
-                                                <i className="fa fa-search-plus"></i>
-                                            </a>
-                                        </div>
+                                    <div className="gallery__content gallery__content-custom">
+                                        <h4 className="gallery__content-title">{item.productName}</h4>
+                                        <p className="gallery__content-desc">{item.description}</p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-xl-6 col-lg-6 col-md-12">
-                            <div className="gallery pos-rel text-center wow fadeInUp2 animated" data-wow-delay=".3s">
-                                <div className="gallery__thumb pos-rel mb-30">
-                                    <img src="assets/img/about/1.jpeg" alt="" />
-                                </div>
-                                <div className="gallery__content">
-                                    <a className="popup-image" href="assets/img/about/1.jpeg">
-                                        <i className="fa fa-search-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             <div className="intro-video-area">
                 <div className="container">
-                    <div className="col-xl-10 col-lg-10 col-md-10 mx-auto">
+                    <div className="col-12 mx-auto">
                         <div
                             className="intro-video-content pos-rel mb-30"
                             style={{
