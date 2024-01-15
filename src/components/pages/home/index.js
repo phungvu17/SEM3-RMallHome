@@ -7,6 +7,7 @@ import Services from "../../views/home/services";
 import About from "../../views/home/about-us";
 import PhotoGallery from "../../views/home/photo-gallery";
 import Brand from "../../views/home/brand";
+import { Link } from "react-router-dom";
 function Home() {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -77,18 +78,13 @@ function Home() {
                                     <div className="row">
                                         <div className="col-xl-7">
                                             <div className="slider__content text-left">
-                                                <h5 className="sub-title mb-25 wow fadeInUp2 animated" data-wow-delay=".1s">
-                                                    <span className="pr-10">
-                                                        <i className="far fa-heart"></i>
-                                                    </span>
-                                                    Fund Raising For Helpless.
-                                                </h5>
                                                 <h1 className="main-title wow fadeInUp2 animated" data-wow-delay=".2s">
-                                                    Raise Your <span>Helping Hand</span> For Poor People
+                                                    R MAll - India's <span>leading</span> commercial mall
                                                 </h1>
+
                                                 <p className="wow fadeInUp2 animated" data-wow-delay=".3s">
-                                                    There are many variations of passages of orem psum available but the majority have suffered alteration in some form by injected humour or
-                                                    randomised.
+                                                    Stay updated on our latest innovative initiatives designed to enhance your experience. We're constantly exploring new avenues to bring you the best
+                                                    of what a modern shopping center can offer.
                                                 </p>
                                                 <ul className="btn-list wow fadeInUp2 animated" data-wow-delay=".4s">
                                                     <li>
@@ -116,18 +112,12 @@ function Home() {
                                     <div className="row">
                                         <div className="col-xl-7">
                                             <div className="slider__content text-left">
-                                                <h5 className="sub-title mb-25 wow fadeInUp2 animated" data-wow-delay=".1s">
-                                                    <span className="pr-10">
-                                                        <i className="far fa-heart"></i>
-                                                    </span>
-                                                    Fund Raising For Helpless.
-                                                </h5>
                                                 <h1 className="main-title wow fadeInUp2 animated" data-wow-delay=".2s">
-                                                    We Help <span>People In Need</span> Around The World
+                                                    R MAll - India's <span>leading</span> commercial mall
                                                 </h1>
                                                 <p className="wow fadeInUp2 animated" data-wow-delay=".3s">
-                                                    There are many variations of passages of orem psum available but the majority have suffered alteration in some form by injected humour or
-                                                    randomised.
+                                                    Explore our diverse collection of products and enjoy a tailored shopping experience at our commercial hub. Uncover unique finds and modern
+                                                    conveniences that redefine the essence of a shopping center.
                                                 </p>
                                                 <ul className="btn-list wow fadeInUp2 animated" data-wow-delay=".4s">
                                                     <li>
@@ -159,12 +149,14 @@ function Home() {
                                             <ul className="services__content heding-bg-2 pos-abl">
                                                 <li>
                                                     <h4 className="semi-02-title">
-                                                        <a href="#!">Book movie tickets</a>
+                                                        <a href="http://localhost:3001/" target="_blank">
+                                                            Book movie tickets
+                                                        </a>
                                                     </h4>
                                                     <p>Explore now</p>
                                                 </li>
                                                 <li>
-                                                    <a className="more_btn" href="#!">
+                                                    <a className="more_btn" href="http://localhost:3001/" target="_blank">
                                                         <i className="far fa-arrow-right"></i>
                                                     </a>
                                                 </li>
@@ -179,14 +171,14 @@ function Home() {
                                             <ul className="services__content heding-bg-2 pos-abl">
                                                 <li>
                                                     <h4 className="semi-02-title">
-                                                        <a href="#!">Food Court</a>
+                                                        <Link to="/shop/food-court">Food Court</Link>
                                                     </h4>
                                                     <p>Explore now</p>
                                                 </li>
                                                 <li>
-                                                    <a className="more_btn" href="#!">
+                                                    <Link to="/shop/food-court" className="more_btn">
                                                         <i className="far fa-arrow-right"></i>
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -199,14 +191,14 @@ function Home() {
                                             <ul className="services__content heding-bg-2 pos-abl">
                                                 <li>
                                                     <h4 className="semi-02-title">
-                                                        <a href="#!">Shopping</a>
+                                                        <Link to="/shop/shopping-centers">Shopping</Link>
                                                     </h4>
                                                     <p>Explore now</p>
                                                 </li>
                                                 <li>
-                                                    <a className="more_btn" href="#!">
+                                                    <Link to="/shop/shopping-centers" className="more_btn">
                                                         <i className="far fa-arrow-right"></i>
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </div>
